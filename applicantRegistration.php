@@ -41,10 +41,84 @@
                   <div class="col-md-4">
                       <input type="text" class="form-control form-control-user" id="middleName" placeholder="Middle Name">
                   </div>
-                  <div class="col-md-4">
+              </div>
+
+              <br>
+
+              <div class="row">
+                  <div class="col-sm-4"> 
+                    <select class="form-control" id="cStatus">
+                    <option value="" disabled selected>Civil Status</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+                  <div class="col-sm-3"> 
+                    <select class="form-control" id="gender">
+                    <option value="" disabled selected>Gender</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                      <input type="text" class="form-control form-control-user" id="middleName" placeholder="Age">
+                  </div>
+                  <div class="col-md-2">
                       <input type="text" class="form-control form-control-user" id="middleName" placeholder="Suffix">
                   </div>
               </div>
+
+              <br>
+              
+                <div class="row">
+                  <div class="col-md-12">
+                      <input type="text" class="form-control form-control-user" id="address" placeholder="Address">
+                </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+                  <div class="col-md-6">
+                      <input type="text" class="form-control form-control-user" id="religion" placeholder="Religion">
+                </div>
+                <div class="col-md-6">
+                      <input type="text" class="form-control form-control-user" id="citizenship" placeholder="Citizenship">
+                </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+                  <div class="col-md-6">
+                  <input type="date" class="form-control form-control-user" name="dateofbirth" id="dateofbirth">
+                </div>
+                <div class="col-md-6">
+                      <input type="text" class="form-control form-control-user" id="placeofbirth" placeholder="Place of Birth">
+                </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+                  <div class="col-md-2">
+                  <input type="text" class="form-control form-control-user" id="height" placeholder="Height">
+                </div>
+                <div class="col-md-2">
+                      <input type="text" class="form-control form-control-user" id="weight" placeholder="Weight">
+                </div>
+                <div class="col-md-4">
+                      <input type="text" class="form-control form-control-user" id="cellphone" placeholder="Cellphone">
+                </div>
+                <div class="col-md-4">
+                      <input type="text" class="form-control form-control-user" id="telephone" placeholder="Telephone">
+                </div>
+              </div>
+
+
+
             </div>
         </div>
 
