@@ -371,6 +371,119 @@
             <h6 class="m-0 font-weight-bold text-primary">Allottee</h6>
           </div>
           <div class="card-body">
+
+          <div class="row">
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee" placeholder="Address">
+                  </div>
+              </div>
+              </div>
+              </div>
+
+              <div class="card mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">RPS</h6>
+          </div>
+          <div class="card-body">
+          <div class="row">
+                  <div class="col-md-6"> 
+                      <input type="text" class="form-control form-control-user" id="school" placeholder="Agency">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+                  <div class="col-md-6"> 
+                      <input type="text" class="form-control form-control-user" id="school" placeholder="Principal">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+                  <div class="col-md-6"> 
+                      <input type="text" class="form-control form-control-user" id="school" placeholder="Vessel">
+                  </div>
+              </div>
+
+          </div>
     </div>
 
     
