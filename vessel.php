@@ -17,7 +17,7 @@
               <h3 class="m-0 font-weight-bold text-primary">Vessels</h3>
               </div>
               <div class="col">
-              <a href="#" class="btn btn-primary btn-icon-split" style="float: right;">
+              <a href="#" class="btn btn-primary btn-icon-split" style="float: right;" data-toggle="modal" data-target="#myModal">
                     <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                     </span>
@@ -515,6 +515,109 @@
 
         </div>
         <!-- /.container-fluid -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Add Vessel</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-2">
+                        <input type="text" class="form-control form-control-user" id="height" placeholder="Vessel No.">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control form-control-user" id="weight" placeholder="Vessel Name">
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control form-control-user" id="cellphone" placeholder="Principal">
+                    </div>
+                    <div class="col-md-2">
+                        <input type="text" class="form-control form-control-user" id="telephone" placeholder="Flag">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="height" placeholder="Gross Tonage">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="weight" placeholder="JSU">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="cellphone" placeholder="Engine Make">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="telephone" placeholder="Port Registry">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="height" placeholder="Official No">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="weight" placeholder="CBA">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="cellphone" placeholder="IMO No.">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="telephone" placeholder="Vessel Abr">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="height" placeholder="Status">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="weight" placeholder="HP (KW)">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="cellphone" placeholder="Classification">
+                    </div>
+                    <div class="col-md-3">
+                        <input type="text" class="form-control form-control-user" id="telephone" placeholder="Type">
+                    </div>
+                </div>
+
+                <br>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Date Enrolled</label>
+                        <input type="date" name="bday" min="1000-01-01" max="3000-12-31" class="form-control">
+                    </div>
+                    <div class="col-md-6">
+                        <label>Year Built</label>
+                        <input type="date" name="bday" min="1000-01-01" max="3000-12-31" class="form-control">
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
 
       </div>
       <!-- End of Main Content -->
