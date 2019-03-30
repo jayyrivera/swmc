@@ -34,29 +34,33 @@
               <div class="text-center">
                 <h1 class="h4 text-gray-900 mb-4">Create New Account</h1>
               </div>
-              <form class="user">
+              <div class="alert alert-danger" role="alert" id="registeralert">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <span id="textalertregister"> </span>
+              </div>
+              <form id="registeraccount">
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" id="exampleFirstName" placeholder="First Name">
+                    <input type="text" class="form-control form-control-user" id="regFname" name="regFname" placeholder="First Name">
                   </div>
                   <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" id="exampleLastName" placeholder="Last Name">
+                    <input type="text" class="form-control form-control-user" id="regLname" name="regLname" placeholder="Last Name">
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-user" id="exampleInputEmail" placeholder="Email Address">
+                  <input type="email" class="form-control form-control-user" id="regEmailAdd" name="regEmailAdd" placeholder="Email Address">
                 </div>
                 <div class="form-group row">
                   <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                    <input type="password" class="form-control form-control-user" id="regPass" name="regPass" placeholder="Password">
                   </div>
                   <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" id="exampleRepeatPassword" placeholder="Repeat Password">
+                    <input type="password" class="form-control form-control-user" id="regRepeatPass" placeholder="Repeat Password">
                   </div>
                 </div>
-                <a href="dashboard.php" class="btn btn-primary btn-user btn-block">
+                <button class="btn btn-primary btn-user btn-block" id="registerAccount">
                   Register Account
-                </a>
+                </button>
                
                
            
@@ -81,6 +85,51 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <script type="text/javascript">
+
+  $(function() {
+    $("#registeralert").hide(); // to hide alert pane on load of page
+
+    $('#registerAccount').on('click', function(e) {
+        e.preventDefault(); // to prevent from refreshing
+        //conditions for the required fields
+        if($("#regFname").val() == "" || $("#regLname").val() == "" || $("#regEmailAdd").val() == "" || $("#regPass").val() == ""){
+          $("#registeralert").show(); //to show alert pane
+          $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
+
+        if($("#regPass").val() != $("#regRepeatPass").val()){
+          $("#registeralert").show(); //to show alert pane
+          $("#textalertregister").text("Please confirm password!"); // set text alert pane
+          return false;
+        }
+        
+        $("#registeralert").hide();
+        var str = $( "#registeraccount" ).serialize();
+        $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: "function=save&" + str,
+          url:"ajax/ajax_registerAccount.php",
+          success:function(data) {
+
+            if(data.status ==1){
+              alert(data.message);
+              window.location.href = "dashboard.php";
+            }else{
+              //error message here
+            }
+
+          }
+        });
+    });
+  });
+  
+  </script>
+
+  
 
 </body>
 
