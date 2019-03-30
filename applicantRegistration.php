@@ -10,11 +10,11 @@
                 <h1 class="h3 mb-0 text-gray-800">Applicant Registration</h1>
         </div>
 
-        <div class="card mb-4">
-          <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Application Personal Data</h6>
-          </div>
-        <div class="card-body">
+            <div class="card mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Application Personal Data</h6>
+            </div>
+            <div class="card-body">
 
         
 
