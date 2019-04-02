@@ -120,6 +120,7 @@
               window.location.href = "dashboard.php";
             }else{
               //error message here
+              alert(data.message);
             }
 
           }

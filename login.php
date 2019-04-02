@@ -39,20 +39,24 @@
                   <div class="text-center">
                     <h1 class="h4 text-gray-900 mb-4">Sea World Maritime Corporation</h1>
                   </div>
-                  <form class="user">
+                  <form class="user" id="loginAccount">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter User ID">
+                      <input type="email" class="form-control form-control-user" id="loginEmail" name = "loginEmail" aria-describedby="emailHelp" placeholder="Enter User ID">
                     </div>
                     <div class="form-group">
-                      <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input type="password" class="form-control form-control-user" id="loginPassowrd"  name="loginPassword" placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
+                      <div class="alert alert-danger" role="alert" id="loginAlert">
+                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                       <span id="textLoginAlert"> </span>
+                      </div>
                     </div>
-                    <a href="dashboard.php" class="btn btn-primary btn-user btn-block">
+                    <a class="btn btn-primary btn-user btn-block" id="loginAccounts">
                       Login
                     </a>
                   </form>
@@ -84,6 +88,42 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+  <script type="text/javascript">
+
+  $(function() {
+    $("#loginAlert").hide(); 
+    
+    $('#loginAccounts').on('click', function(e) {
+        
+      if($("#loginEmail").val() == "" || $("#loginPassword").val() == "" ){
+          $("#loginAlert").show(); //to show alert pane
+          $("#textLoginAlert").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
+        var str = $( "#loginAccount" ).serialize();
+        e.preventDefault(); // to prevent from refreshing
+        $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: "function=login&" + str,
+          url:"ajax/ajax_loginAccount.php",
+          success:function(data) {
+
+            if(data.status ==1){
+              alert(data.message);
+              window.location.href = "dashboard.php";
+            }else{
+              //error message here
+              alert(data.message);
+            }
+
+          }
+         });
+       }); 
+    });
+  
+  </script>
 
 </body>
 
