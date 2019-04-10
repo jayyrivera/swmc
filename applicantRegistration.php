@@ -4,6 +4,8 @@
 
 
 <!-- Begin Page Content -->
+<body class="bg-gradient-primary">
+<form class="applicant" id="registerApplicant">
 <div class="container-fluid">
 
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -25,7 +27,7 @@
                     <div class="js--image-preview"></div>
                     <div class="upload-options">
                       <label>
-                      <input type="file" class="image-upload" accept="image/*" />
+                      <input type="file" class="image-upload" accept="image/*" name = "image" id="imageApplicants" />
                       </label>
                     </div>
                 </div>
@@ -33,13 +35,13 @@
               <div class="col-md-8">
                 <div class="row">
                   <div class="col-md-4"> 
-                      <input type="text" class="form-control form-control-user" id="firstName" placeholder="First Name">
+                      <input type="text" class="form-control form-control-user" id="firstName" name = "firtNameApplicant" placeholder="First Name">
                   </div>
                   <div class="col-md-4">
-                      <input type="text" class="form-control form-control-user" id="lastName" placeholder="Last Name">
+                      <input type="text" class="form-control form-control-user" id="lastName" name = "lastNameApplicant" placeholder="Last Name">
                   </div>
                   <div class="col-md-4">
-                      <input type="text" class="form-control form-control-user" id="middleName" placeholder="Middle Name">
+                      <input type="text" class="form-control form-control-user" id="middleName" name = "middleNameApplicant" placeholder="Middle Name">
                   </div>
               </div>
 
@@ -47,15 +49,15 @@
 
               <div class="row">
                   <div class="col-sm-4"> 
-                    <select class="form-control" id="cStatus">
-                    <option value="" disabled selected>Civil Status</option>
+                    <select class="form-control" id = "cStatus" name ="cStatus">
+                    <option value="" disabled selected>Civil Status</o  ption>
                       <option>2</option>
                       <option>3</option>
                       <option>4</option>
                     </select>
                   </div>
                   <div class="col-sm-3"> 
-                    <select class="form-control" id="gender">
+                    <select class="form-control" id = "genderID" name ="genderID">
                     <option value="" disabled selected>Gender</option>
                       <option>2</option>
                       <option>3</option>
@@ -63,10 +65,10 @@
                     </select>
                   </div>
                   <div class="col-md-3">
-                      <input type="text" class="form-control form-control-user" id="middleName" placeholder="Age">
+                      <input type="text" class="form-control form-control-user" id = "ageID" name ="ageID" placeholder="Age">
                   </div>
                   <div class="col-md-2">
-                      <input type="text" class="form-control form-control-user" id="middleName" placeholder="Suffix">
+                      <input type="text" class="form-control form-control-user" id="suffixID" name = "suffixID" placeholder="Suffix">
                   </div>
               </div>
 
@@ -74,7 +76,7 @@
               
                 <div class="row">
                   <div class="col-md-12">
-                      <input type="text" class="form-control form-control-user" id="address" placeholder="Address">
+                      <input type="text" class="form-control form-control-user" id="address" name ="address" placeholder="Address">
                 </div>
               </div>
 
@@ -93,7 +95,7 @@
 
               <div class="row">
                   <div class="col-md-6">
-                  <input type="date" class="form-control form-control-user" name="dateofbirth" id="dateofbirth">
+                  <input type="date" class="form-control form-control-user" >
                 </div>
                 <div class="col-md-6">
                       <input type="text" class="form-control form-control-user" id="placeofbirth" placeholder="Place of Birth">
@@ -333,7 +335,7 @@
                       <input type="text" class="form-control form-control-user" id="school" placeholder="Relationship">
                   </div>
                   <div class="col-md-4"> 
-                    <input type="date" class="form-control form-control-user" name="dateofbirth" id="dateofbirth">
+                    <input type="date" class="form-control form-control-user" >
                   </div>
               </div>
 
@@ -347,7 +349,7 @@
                       <input type="text" class="form-control form-control-user" id="school" placeholder="Relationship">
                   </div>
                   <div class="col-md-4"> 
-                    <input type="date" class="form-control form-control-user" name="dateofbirth" id="dateofbirth">
+                    <input type="date" class="form-control form-control-user" >
                   </div>
               </div>
 
@@ -361,7 +363,7 @@
                       <input type="text" class="form-control form-control-user" id="school" placeholder="Relationship">
                   </div>
                   <div class="col-md-4"> 
-                    <input type="date" class="form-control form-control-user" name="dateofbirth" id="dateofbirth">
+                    <input type="date" class="form-control form-control-user" >
                   </div>
               </div>
           </div>
@@ -483,10 +485,51 @@
                   </div>
               </div>
 
+              <br>
+
+              <div class="row">
+                  <div class="col-md-12"> 
+                  <button class="btn btn-primary btn-user btn-block" id="registerApplicants">
+                  Register Applicant
+                </button>
+                  </div>
+              </div>
+
           </div>
     </div>
+    </form>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
 
+    $(function() {
+  
+     $('#registerApplicants').on('click', function(e) {
+      
     
+      var str = $( "#registerApplicant" ).serialize();
+      e.preventDefault();
+      $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: "function=save&" + str,
+          url:"ajax/ajax_applicantRegister.php",
+          success:function(data) {
+
+            if(data.status ==1){
+              alert(data.message);
+            }else{
+              //error message here
+              alert(data.message);
+            }
+
+          }
+        });
+     }); 
+  });
+
+</script>
+</body>
+
 
       
 
