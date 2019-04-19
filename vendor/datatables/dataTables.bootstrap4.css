@@ -31,16 +31,18 @@ div.dataTables_wrapper div.dataTables_length select {
 }
 div.dataTables_wrapper div.dataTables_filter {
   text-align: right;
+  float: right;
 }
 div.dataTables_wrapper div.dataTables_filter label {
   font-weight: normal;
   white-space: nowrap;
-  text-align: left;
+  text-align: right;
 }
 div.dataTables_wrapper div.dataTables_filter input {
   margin-left: 0.5em;
   display: inline-block;
   width: auto;
+  float: right;
 }
 div.dataTables_wrapper div.dataTables_info {
   padding-top: 0.85em;

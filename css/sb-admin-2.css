@@ -1954,7 +1954,7 @@ pre code {
   .table-responsive-sm {
     display: block;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
   .table-responsive-sm > .table-bordered {
@@ -1966,7 +1966,7 @@ pre code {
   .table-responsive-md {
     display: block;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
   .table-responsive-md > .table-bordered {
@@ -1978,7 +1978,7 @@ pre code {
   .table-responsive-lg {
     display: block;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
   .table-responsive-lg > .table-bordered {
@@ -1990,7 +1990,7 @@ pre code {
   .table-responsive-xl {
     display: block;
     width: 100%;
-    overflow-x: auto;
+    overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
   }
   .table-responsive-xl > .table-bordered {
@@ -2001,7 +2001,7 @@ pre code {
 .table-responsive {
   display: block;
   width: 100%;
-  overflow-x: auto;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 }
 
@@ -2016,6 +2016,7 @@ pre code {
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
   font-weight: 400;
+  float: right;
   line-height: 1.5;
   color: #6e707e;
   background-color: #fff;
@@ -2131,6 +2132,7 @@ select.form-control:focus::-ms-value {
   font-size: 0.875rem;
   line-height: 1.5;
   border-radius: 0.2rem;
+  float: right;
 }
 
 .form-control-lg {
