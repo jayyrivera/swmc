@@ -17,8 +17,7 @@
             </div>
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="dataApplicants" name = "dataApplicants" width="100%" cellspacing="0" >
-                  
+                <table class="table table-bordered" id="dataApplicants" name = "dataApplicant" width="100%" cellspacing="0" >
                 </table>
               </div>
             </div>
@@ -43,6 +42,7 @@
 
       $('document').ready(function()
       {
+
           $.ajax({
             type: "GET",
           dataType: "json",
@@ -52,22 +52,21 @@
                   //pass data to datatable
                   console.log(result); // just to see I'm getting the correct data.
                   $('#dataApplicants').DataTable({
-                      "searching": false, //this is disabled because I have a custom search.
-                      "aaData": [result], //here we get the array data from the ajax call.
-                      "aoColumns": [
-                  { "sTitle": "First Name" },
-                  { "sTitle": "Last Name" },
-                  { "sTitle": "Middle Name" },
-                  { "sTitle": "Gender" },
-                  { "sTitle": "Age" },
-                  { "sTitle": "BirthDate" },
-                  { "sTitle": "Mobile No." },
-                  { "sTitle": "Address" },
-                ] //this isn't necessary unless you want modify the header
-                  //names without changing it in your html code. 
-                  //I find it useful tho' to setup the headers this way.
-        
-                  });
+                    "searching": true,
+                    "ajax": "ajax/ajax_applicantPopulate.php", 
+                    "header": true,
+                    "columns" : [
+                      {"data": "firstname", "title": "First Name"},
+                      {"data": "lastname", "title": "Last Name"},
+                      {"data": "middlename", "title": "Middle Name"},
+                      {"data": "gender", "title": "Gender"},
+                      {"data": "age", "title": "Age"},
+                      {"data": "birthdate", "title": "Birthdate"},
+                      {"data": "mobileno", "title": "Mobile No."},
+                      {"data": "address","title": "Address"},
+                      ]
+                      
+                  }) 
               }
           });
       });
