@@ -269,7 +269,27 @@
 
           <h1 class="h6 text-gray-900 mb-4">Beneficiaries:</h1>
 
-          <div class="row">
+          <div class="table-responsive">
+                    <table class="table table-bordered" id="ben_table">
+                    <tr>
+                    <th width="30%">Name</th>
+                    <th width="10%">Relationship</th>
+                    <th width="45%">Address</th>
+                    <th width="5%"></th>
+                    </tr>
+                    <tr>
+                    <td contenteditable="true" class="item_name"></td>
+                    <td contenteditable="true" class="item_rel"></td>
+                    <td contenteditable="true" class="item_add"></td>
+                    <td></td>
+                    </tr>
+                    </table>
+                    <div align="right">
+                        <button type="button" name="addBen" id="addBen" class="btn btn-success btn-xs">+</button>
+                    </div>
+            </div>
+
+          <!-- <div class="row">
                   <div class="col-md-4"> 
                       <input type="text" class="form-control form-control-user" id="benNAme1" name = "benNAme1" placeholder="Name">
                   </div>
@@ -321,13 +341,33 @@
                   <div class="col-md-6"> 
                       <input type="text" class="form-control form-control-user" id="benAddress4" name = "benAddress4" placeholder="Address">
                   </div>
-              </div>
+              </div> -->
 
               <br>
 
               <h1 class="h6 text-gray-900 mb-4">Dependents:</h1>
 
-              <div class="row">
+              <div class="table-responsive">
+                    <table class="table table-bordered" id="dep_table">
+                    <tr>
+                    <th width="30%">Name</th>
+                    <th width="10%">Relationship</th>
+                    <th width="45%">Date of Birth</th>
+                    <th width="5%"></th>
+                    </tr>
+                    <tr>
+                    <td contenteditable="true" class="item_namedep"></td>
+                    <td contenteditable="true" class="item_reldep"></td>
+                    <td contenteditable="true" class="item_dobdep"></td>
+                    <td></td>
+                    </tr>
+                    </table>
+                    <div align="right">
+                        <button type="button" name="addDep" id="addDep" class="btn btn-success btn-xs">+</button>
+                    </div>
+            </div>
+
+              <!-- <div class="row">
                   <div class="col-md-6"> 
                       <input type="text" class="form-control form-control-user" id="dependentsName1" name = "dependentsName1" placeholder="Name">
                   </div>
@@ -365,7 +405,7 @@
                   <div class="col-md-4"> 
                     <input type="date" id="dateofbirthdependent3" name = "dateofbirthdependent3" class="form-control form-control-user" >
                   </div>
-              </div>
+              </div> -->
           </div>
       </div>
       <div class="card mb-4">
@@ -502,6 +542,42 @@
     <script type="text/javascript">
 
     $(function() {
+        var count = 1;
+        $('#addBen').click(function(){
+            count = count + 1;
+                var html_code = "<tr id='row"+count+"'>";
+                html_code += "<td contenteditable='true' class='item_name'></td>";
+                html_code += "<td contenteditable='true' class='item_rel'></td>";
+                html_code += "<td contenteditable='true' class='item_add'></td>";
+                html_code += "<td><button type='button' name='removeBen' data-row='row"+count+"' class='btn btn-danger btn-xs removeBen'>X</button></td>";   
+                html_code += "</tr>";  
+                $('#ben_table').append(html_code);
+                });
+                
+                $(document).on('click', '.removeBen', function(){
+                var delete_row = $(this).data("row");
+                $('#' + delete_row).remove();
+                });
+
+                //dependent add
+                $('#addDep').click(function(){
+                    counts = count + 1;
+                var html_code = "<tr id='row"+counts+"'>";
+                html_code += "<td contenteditable='true' class='item_namedep'></td>";
+                html_code += "<td contenteditable='true' class='item_reldep'></td>";
+                html_code += "<td contenteditable='true' class='item_dobdep'></td>";
+                html_code += "<td><button type='button' name='removeDep' data-row='row"+counts+"' class='btn btn-danger btn-xs removeDep'>X</button></td>";   
+                html_code += "</tr>";  
+                $('#dep_table').append(html_code);
+                });
+                
+                $(document).on('click', '.removeDep', function(){
+                var delete_row = $(this).data("row");
+                $('#' + delete_row).remove();
+                });
+
+
+
   
      $('#registerApplicants').on('click', function(e) {
       
@@ -519,86 +595,15 @@
 
             if(data.status ==1){
                             $.ajax({
-                    type: "POST",
-                    dataType: "json",
-                    data: "function=save&" + str,
-                    url:"ajax/ajax_applicantEducationBackground.php",
-                    success:function(data) {
-
-                        if(data.status ==1){
-                            $.ajax({
                                 type: "POST",
                                 dataType: "json",
                                 data: "function=save&" + str,
-                                url:"ajax/ajax_applicantBeneficiaries.php",
+                                url:"ajax/ajax_applicantEducationBackground.php",
                                 success:function(data) {
-
-                                    if(data.status ==1){
-                                        $.ajax({
-                                            type: "POST",
-                                            dataType: "json",
-                                            data: "function=save&" + str,
-                                            url:"ajax/ajax_applicantDependent.php",
-                                            success:function(data) {
-
-                                                if(data.status ==1){
-                                                                    $.ajax({
-                                                            type: "POST",
-                                                            dataType: "json",
-                                                            data: "function=save&" + str,
-                                                            url:"ajax/ajax_applicantAlottee.php",
-                                                            success:function(data) {
-
-                                                                if(data.status ==1){
-                                                                                $.ajax({
-                                                                        type: "POST",
-                                                                        dataType: "json",
-                                                                        data: "function=save&" + str,
-                                                                        url:"ajax/ajax_applicantRPS.php",
-                                                                        success:function(data) {
-
-                                                                            if(data.status ==1){
-                                                                            alert(data.message);
-                                                                            }else{
-                                                                            //error message here
-                                                                            alert(data.message);
-                                                                            }
-
-                                                                        }
-                                                                    });
-                                                                alert(data.message);
-                                                                }else{
-                                                                //error message here
-                                                                alert(data.message);
-                                                                }
-
-                                                            }
-                                                        });
-                                                alert(data.message);
-                                                }else{
-                                                //error message here
-                                                alert(data.message);
-                                                }
-
-                                            }
-                                        });
-                                    alert(data.message);
-                                    }else{
-                                    //error message here
-                                    alert(data.message);
-                                    }
-
+                                    add_Beneficiaries();
+                                    add_Dependents();
                                 }
                              });
-                                
-                        alert(data.message);
-                        }else{
-                        //error message here
-                        alert(data.message);
-                        }
-
-                    }
-                    });
               alert(data.message);
             }else{
               //error message here
@@ -609,6 +614,64 @@
         });
      }); 
   });
+
+  function add_Beneficiaries(){
+  var item_name = [];
+  var item_rel = [];
+  var item_add = [];
+  $('.item_name').each(function(){
+   item_name.push($(this).text());
+  });
+  $('.item_rel').each(function(){
+    item_rel.push($(this).text());
+  });
+  $('.item_add').each(function(){
+    item_add.push($(this).text());
+  });
+  $.ajax({
+   url:"ajax/ajax_applicantBeneficiaries.php",
+   method:"POST",
+   data:{item_name:item_name, item_rel:item_rel, item_add:item_add},
+   success:function(data){
+    alert(data);
+    $("td[contentEditable='true']").text("");
+    for(var i=2; i<= count; i++)
+    {
+     $('tr#'+i+'').remove();
+    }
+   }
+  });
+
+  }
+
+  function add_Dependents(){
+  var item_namedep = [];
+  var item_reldep = [];
+  var item_dobdep = [];
+  $('.item_namedep').each(function(){
+    item_namedep.push($(this).text());
+  });
+  $('.item_reldep').each(function(){
+    item_reldep.push($(this).text());
+  });
+  $('.item_dobdep').each(function(){
+    item_dobdep.push($(this).text());
+  });
+  $.ajax({
+   url:"ajax/ajax_applicantDependent.php",
+   method:"POST",
+   data:{item_namedep:item_namedep, item_reldep:item_reldep, item_dobdep:item_dobdep},
+   success:function(data){
+    alert(data);
+    $("td[contentEditable='true']").text("");
+    for(var i=2; i<= count; i++)
+    {
+     $('tr#'+i+'').remove();
+    }
+   }
+  });
+
+  }
 
 </script>
 </body>
