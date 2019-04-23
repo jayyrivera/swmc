@@ -107,13 +107,22 @@
 
                             <div class="row">
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control form-control-user" id="firstName" name = "firstName" placeholder="First Name">
+                                    <!-- <input type="text" class="form-control form-control-user" id="firstName" name = "firstName" placeholder="First Name"> -->
+                                    <select class="form-control" id="sel_name" name = "sel_name">
+                                    <option value="" disabled selected>Select Name</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control form-control-user" id="lastName" name = "lastName" placeholder="Last Name">
+                                    <!-- <input type="text" class="form-control form-control-user" id="lastName" name = "lastName" placeholder="Last Name"> -->
+                                    <select class="form-control" id="sel_lname" name = "sel_lname">
+                                    <option value="" disabled selected>Select Name</option>
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control form-control-user" id="middleName" name = "middleName" placeholder="Middle Name">
+                                    <!-- <input type="text" class="form-control form-control-user" id="middleName" name = "middleName" placeholder="Middle Name"> -->
+                                    <select class="form-control" id="sel_mname" name = "sel_mname ">
+                                    <option value="" disabled selected>Select Name</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -288,9 +297,10 @@
         });
         $('#embarkForm')[0].reset();
      }); 
+ 
 
       $.ajax({
-            type: "GET",
+        type: "GET",
           dataType: "json",
           url:"ajax/ajax_vesselPopulate.php",
           success :  function(result)
@@ -325,7 +335,67 @@
                   })  // just to see I'm getting the correct data.
               }
           });
+          selectUser();
+          populateBaseID();
+        
   });
+
+  function selectUser(){
+    // $.ajax({
+    //     type: "GET",
+    //       dataType: "json",
+    //       url:"ajax/ajax_selectNameEmbark.php",
+    //       success :  function(result){
+    //           console.log(result);
+    //       }
+    // });
+
+    $.getJSON("ajax/ajax_selectNameEmbark.php",function(data){
+        console.log(data);
+        var items="";
+        $.each(data,function(index,item) 
+        {
+          items+="<option value='"+item.applicantid+"'>"+item.firstname+"</option>";
+        });
+        $("#sel_name").html(items); 
+      });
+   
+  }
+
+
+  function populateBaseID(){
+    $("#sel_name").change(function(){
+        var deptid = $(this).val();
+        console.log(deptid);
+
+        $.ajax({
+            url: 'ajax/ajax_autoPopulateNamesEmbark.php',
+            type: 'post',
+            data: {depart:deptid},
+            dataType: 'json',
+            success:function(response){
+                console.log(response);
+
+                var len = response.length;
+
+                $("#sel_lname").empty();
+                for( var i = 0; i<len; i++){
+                    var id = response[i]['applicantid'];
+                    var name = response[i]['lastname'];
+                    
+                    $("#sel_lname").append("<option value='"+id+"'>"+name+"</option>");
+                }
+                $("#sel_mname").empty();
+                for( var i = 0; i<len; i++){
+                    var id = response[i]['applicantid'];
+                    var mname = response[i]['middlename'];
+                    
+                    $("#sel_mname").append("<option value='"+id+"'>"+mname+"</option>");
+                }
+            }
+        });
+    });
+  }
 
 </script>
 
