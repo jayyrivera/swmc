@@ -13,7 +13,7 @@ $columns = array(
         7 => 'Address',
     );
     
-    $sql = "SELECT `firstname`,`lastname`, `middlename`, `gender`, `age`, `address`, `birthdate`, `mobileno` FROM `applicant_tbl`";
+    $sql = "SELECT `applicant_status`, `firstname`,`lastname`, `middlename`, `gender`, `age`, `address`, `birthdate`, `mobileno` FROM `applicant_tbl`";
     $res = mysqli_query($conn, $sql) or die("Error: ".mysqli_error($conn));
 
     // $dataArray = array();

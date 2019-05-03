@@ -7,7 +7,9 @@ if($_POST['function'] == 'save'){
 
     $vesselStatus = $_POST['vesselStatus'];
     $rank = $_POST['rank'];
-    $firstName = $_POST['firstName'];
+    $firstName = $_POST['sel_name'];
+    $lastname = $_POST['sel_lname'];
+    $middlename = $_POST['sel_mname'];
 
     $vessel = $_POST['vessel'];
     $type = $_POST['type'];
@@ -34,7 +36,7 @@ if($_POST['function'] == 'save'){
     $sql = "INSERT INTO `embarktion_tbl`(`applicantId`, `status`, `rank`, `vessel`, `type`, `grossTonage`, `dateEnrolled`, `port_fdids_1`, `duration`, `disembarked_fdids_1`, `embarkedDate_sbds`,
      `disembarkedDate_sbds`, `performanceEvaluation`, `willingnessToJoin`, `availability`, `nextVessel`, 
     `license`, `commentFromPrin`, `remarks`) 
-    VALUES((SELECT MAX(applicantId) FROM applicant_tbl),'$vesselStatus','$rank','$vessel','$type','$gross','$dateEnrolled','$port',
+    VALUES((SELECT MAX(applicantId) FROM applicant_tbl),'$firstName','$lastname','$middlename','$vesselStatus','$rank','$vessel','$type','$gross','$dateEnrolled','$port',
     '$duration','$disembarkedFlight','$embarkedDate','$disembarked','$performance', '$will','$availability','$next', '$license','$comment','$remards')";
 
 

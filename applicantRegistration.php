@@ -5,7 +5,7 @@
 
 <!-- Begin Page Content -->
 <body class="bg-gradient-primary">
-<form class="applicant" id="registerApplicant">
+<form class="applicant" id="registerApplicant"  method="POST" enctype="multipart/form-data">
 <div class="container-fluid">
 
       <div class="d-sm-flex align-items-center justify-content-between mb-4">
@@ -27,7 +27,7 @@
                     <div class="js--image-preview"></div>
                     <div class="upload-options">
                       <label>
-                      <input type="file" class="image-upload" accept="image/*" name = "image" id="imageApplicants" />
+                      <input type="file" class="image-upload" accept="image/*" name = "insertImage" id="insertImage" />
                       </label>
                     </div>
                 </div>
@@ -118,6 +118,19 @@
                       <input type="text" class="form-control form-control-user" id="telephone" name = "telephone" placeholder="Telephone">
                 </div>
               </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-sm-12"> 
+                    <select class="form-control" id = "applicant_status" name ="applicant_status">
+                    <option value="" disabled selected>Status</option>
+                      <option>Active</option>
+                      <option>Not Active</option>
+                    </select>
+                  </div>
+              </div>
+             
 
 
 
@@ -594,6 +607,7 @@
           success:function(data) {
 
             if(data.status ==1){
+                insertImage()
                             $.ajax({
                                 type: "POST",
                                 dataType: "json",
@@ -672,6 +686,39 @@
   });
 
   }
+  function insertImage(){
+    $.ajax({
+         url: "ajax/ajax_importImage.php",
+   type: "POST",
+   data:  new FormData(this),
+   contentType: false,
+         cache: false,
+   processData:false,
+   beforeSend : function()
+   {
+    //$("#preview").fadeOut();
+    // $("#err").fadeOut();
+   },
+   success: function(data)
+      {
+    if(data=='invalid')
+    {
+     // invalid file format.
+    }
+    else
+    {
+     // view uploaded file.
+     $("#preview").html(data).fadeIn();
+     $("#form")[0].reset(); 
+    }
+      },
+     error: function(e) 
+      {
+    // $("#err").html(e).fadeIn();
+      }          
+    });
+  }
+
 
 </script>
 </body>

@@ -67,6 +67,7 @@
           <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="applicantRegistration.php">Create Applicant</a>
             <a class="collapse-item" href="ViewApplicants.php">Applicant Records</a>
+            <a class="collapse-item" href="applicantLoans.php">Loans</a>
           </div>
         </div>
       </li>
@@ -93,10 +94,10 @@
         <div id="reportUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Reports:</h6>
-            <a class="collapse-item" href="vesselReport.php">Vessel Report</a>
-            <a class="collapse-item" href="applicantReport.php">Applicant Report</a>
+            <a class="collapse-item" href="vesselReport.php">Emabarkation List</a>
+            <a class="collapse-item" href="applicantReport.php">Applicant List</a>
             <a class="collapse-item" href="applicantStatus.php">Applicant Status</a>
-            <a class="collapse-item" href="applicantList.php">Applicant List</a>
+            <a class="collapse-item" href="applicantLoansList.php">Applicant Loans</a>
           </div>
         </div>
       </li>
@@ -109,9 +110,9 @@
         <div id="maintenanceUtitlities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Utilities:</h6>
-            <a class="collapse-item" href="utilities-color.html">Vessels</a>
-            <a class="collapse-item" href="utilities-border.html">Users</a>
-            <a class="collapse-item" href="utilities-animation.html">Documents</a>
+            <a class="collapse-item" href="maintenanceVessel.php">Vessels</a>
+            <a class="collapse-item" href="maintenanceApplicant.php">Applicants</a>
+            <a class="collapse-item" href="maintenanceUsers.php">Users</a>
           </div>
         </div>
       </li>

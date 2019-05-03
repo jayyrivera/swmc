@@ -115,13 +115,13 @@
                                 <div class="col-md-4">
                                     <!-- <input type="text" class="form-control form-control-user" id="lastName" name = "lastName" placeholder="Last Name"> -->
                                     <select class="form-control" id="sel_lname" name = "sel_lname">
-                                    <option value="" disabled selected>Select Name</option>
+                                    <option value="" disabled selected>Select Last Name</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
                                     <!-- <input type="text" class="form-control form-control-user" id="middleName" name = "middleName" placeholder="Middle Name"> -->
-                                    <select class="form-control" id="sel_mname" name = "sel_mname ">
-                                    <option value="" disabled selected>Select Name</option>
+                                    <select class="form-control" id="sel_mname" name = "sel_mname">
+                                    <option value="" disabled selected>Select Middle Name</option>
                                     </select>
                                 </div>
                             </div>
@@ -314,6 +314,8 @@
                     "columns" : [
                       {"data": "status", "title": "Status"},
                       {"data": "rank", "title": "Rank"},
+                      {"data": "firstname", "title": "First Name"},
+                      {"data": "lastname", "title": "Last Name"},
                       {"data": "vessel", "title": "Vessel"},
                       {"data": "type", "title": "Type"},
                       {"data": "grossTonage", "title": "Gross Tonage"},

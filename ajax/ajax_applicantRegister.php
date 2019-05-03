@@ -19,6 +19,7 @@ if($_POST['function'] == 'save'){
     $weight = $_POST['weight'];
     $cellphone = $_POST['cellphone'];
     $telephone = $_POST['telephone'];
+    $status = $_POST['applicant_status'];
     
 
     // familybacground
@@ -37,10 +38,10 @@ if($_POST['function'] == 'save'){
     $motherSuffix = $_POST['motherSuffix'];
 
 
-    $sql = "INSERT INTO `applicant_tbl`(`firstname`, `lastname`, `middlename`, `suffix`, `civilstatus`, `gender`, `age`, `address`, `religion`, `citizenship`, `birthdate`, `placeofbirth`, `telephoneno`, `mobileno`, `height`, 
+    $sql = "INSERT INTO `applicant_tbl`(`applicant_status`,`firstname`, `lastname`, `middlename`, `suffix`, `civilstatus`, `gender`, `age`, `address`, `religion`, `citizenship`, `birthdate`, `placeofbirth`, `telephoneno`, `mobileno`, `height`, 
     `weight`, `spouse_firstname`, `spouse_middlename`, `spouse_lastname`, `spouse_suffix`, `noofchildren`, `father_firstname`, `father_middlename`, `father_lastname`, `father_suffix`, `mother_firstname`
     , `mother_middlename`, `mother_lastname`, `mother_suffix`) 
-                VALUES ('".$regFname."','".$regLname."','".$regMiddleName."','".$regSuffix."','".$regStatus."','".$regGender."','".$regAge."','".$regAddress."','".$religion."','".$citizenship."','".$dob."','".$placeofbirth."','".$telephone."'
+                VALUES ('".$status."','".$regFname."','".$regLname."','".$regMiddleName."','".$regSuffix."','".$regStatus."','".$regGender."','".$regAge."','".$regAddress."','".$religion."','".$citizenship."','".$dob."','".$placeofbirth."','".$telephone."'
                 ,'".$cellphone."','".$height."','".$weight."','".$firstNameSpouse."','".$middleNameSpouse."','".$lastNameSpouse."','".$suffixSpouse."','".$children."','".$fatherfirstName."'
                 ,'".$fathermiddleName."','".$fatherlastName."','".$fatherSuffix."','".$motherFirstName."','".$motherMiddleName."','".$motherLastName."','".$motherSuffix."')";
 

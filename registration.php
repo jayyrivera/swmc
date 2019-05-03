@@ -58,6 +58,18 @@
                     <input type="password" class="form-control form-control-user" id="regRepeatPass" placeholder="Repeat Password">
                   </div>
                 </div>
+
+                <div class="col-sm-12"> 
+                    <select class="form-control form-control-user" id = "cRole" name ="cRole">
+                    <option value="" disabled selected>Role</option>
+                      <option>Admin</option>
+                      <option>Principal</option>
+                      <option>HR</option>
+                    </select>
+                  </div>
+
+                  <br>
+                
                 <button class="btn btn-primary btn-user btn-block" id="registerAccount">
                   Register Account
                 </button>
@@ -94,7 +106,7 @@
     $('#registerAccount').on('click', function(e) {
         e.preventDefault(); // to prevent from refreshing
         //conditions for the required fields
-        if($("#regFname").val() == "" || $("#regLname").val() == "" || $("#regEmailAdd").val() == "" || $("#regPass").val() == ""){
+        if($("#regFname").val() == "" || $("#regLname").val() == "" || $("#regEmailAdd").val() == "" || $("#regPass").val() == "" ||  $("#cRole").val() == "" ){
           $("#registeralert").show(); //to show alert pane
           $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
           return false; // to break

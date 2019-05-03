@@ -13,24 +13,23 @@
             <div class="card-header py-3">
             <div class="row">
               <div class="col">
-              <h3 class="m-0 font-weight-bold text-primary">Applicant Status</h3>
+              <h3 class="m-0 font-weight-bold text-primary">Loans List</h3>
               </div>
               <div class="col">
-              <a href="excelApplicantStatus.php?export=true" class="btn btn-primary btn-icon-split" style="float: right;">
+              <a href="excel.php?export=true" class="btn btn-primary btn-icon-split" style="float: right;">
                     <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
                     </span>
                     <span  class="text">Export to Excel</span>
                   </a>
-            
                 </div>
               </div>
             </div>
             
             <div class="card-body">
               <div class="table-responsive">
-                <table class="table table-bordered" id="applicantStatus" width="100%" cellspacing="0">
-                </table>
+              <table class="table table-bordered" id="loansList" width="100%" cellspacing="0">
+                    </table>
               </div>
             </div>
           </div>
@@ -38,7 +37,8 @@
         </div>
         <!-- /.container-fluid -->
 
-  
+
+
 
       </div>
       <!-- End of Main Content -->
@@ -49,37 +49,41 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script type="text/javascript">
 
-      $('document').ready(function()
-      {
+    $(function() { 
+    //     $('#loansExport').click(function(){  
+          
+    //        var excel_data = $('#loansList').html();  
+    //        result = encodeURIComponent(excel_data);
+    //     //    var page = "excel.php?data=" + result;  
+    //     //    window.location = page;  
+    //        console.log(excel_data);
+    //   });   
 
-          $.ajax({
-            type: "GET",
+        $.ajax({
+        type: "GET",
           dataType: "json",
-          url:"ajax/ajax_applicantPopulate.php",
+          url:"ajax/ajax_loanPopulate.php",
           success :  function(result)
               {
                   //pass data to datatable
-                  console.log(result); // just to see I'm getting the correct data.
-                  $('#applicantStatus').DataTable({
+                  console.log("loans", result);
+                  $('#loansList').DataTable({
                     "searching": true,
-                    "ajax": "ajax/ajax_applicantPopulate.php", 
+                    "ajax": "ajax/ajax_loanPopulate.php", 
                     "header": true,
                     "columns" : [
-                      {"data": "applicant_status", "title": "Status"},
+                      {"data": "loan_existing", "title": "Status"},
                       {"data": "firstname", "title": "First Name"},
                       {"data": "lastname", "title": "Last Name"},
-                      {"data": "middlename", "title": "Middle Name"},
-                      {"data": "gender", "title": "Gender"},
-                      {"data": "age", "title": "Age"},
-                      {"data": "birthdate", "title": "Birthdate"},
-                      {"data": "mobileno", "title": "Mobile No."},
-                      {"data": "address","title": "Address"},
+                      {"data": "loan_type", "title": "Loan Type"},
+                      {"data": "loan_category", "title": "Loan Category"},
                       ]
                       
-                  }) 
+                  })  // just to see I'm getting the correct data.
               }
           });
-      });
-     </script>
+        });
+
+</script>
 
 <?php include 'footer.php' ?>
