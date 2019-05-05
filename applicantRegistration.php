@@ -51,17 +51,18 @@
                   <div class="col-sm-4"> 
                     <select class="form-control" id = "cStatus" name ="cStatus">
                     <option value="" disabled selected>Civil Status</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
+                      <option>Married</option>
+                      <option>Single</option>
+                      <option>Divorced</option>
+                      <option>Widowed</option>
                     </select>
                   </div>
                   <div class="col-sm-3"> 
                     <select class="form-control" id = "genderID" name ="genderID">
                     <option value="" disabled selected>Gender</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
+                      <option>Male</option>
+                      <option>Female</option>
+
                     </select>
                   </div>
                   <div class="col-md-3">
