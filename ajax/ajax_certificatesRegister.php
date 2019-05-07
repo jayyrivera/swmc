@@ -3,15 +3,10 @@ include("../db_connection.php");
 
 if($_POST['function'] == 'save'){
 
-    $loan_cat = $_POST['loan_cat'];
-    $loan_type = $_POST['loan_types'];
-    $loanStatus = $_POST['loanStatus'];
-    $sel_name = $_POST['sel_name'];
+    $certificateName = $_POST['certificateName'];
+    $certificateCat = $_POST['certificateCat'];
 
-   
-
-
-    $sql = "INSERT INTO `applicant_loan`(`applicantid`, `loan_category`, `loan_type`, `loan_existing`) VALUES ('".$sel_name."','".$loan_cat."','".$loan_type."','".$loanStatus."')";
+    $sql = "INSERT INTO `certificates_training_tbl`(`title`, `category`) VALUES ('".$certificateName."','".$certificateCat."')";
 
     
     if (mysqli_query($conn, $sql)) {
@@ -21,9 +16,8 @@ if($_POST['function'] == 'save'){
     }
     
     echo json_encode($response);
-
+    
 }
-
 
 
 ?>

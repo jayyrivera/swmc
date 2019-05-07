@@ -114,7 +114,7 @@
             <a class="collapse-item" href="maintenanceApplicant.php">Applicants</a>
             <a class="collapse-item" href="maintenanceUsers.php">Users</a>
             <a class="collapse-item" href="maintenanceRanks.php">Ranks</a>
-            <a class="collapse-item" href="maintenanceUsers.php">Trainings and Certificates</a>
+            <a class="collapse-item" href="maintenanceTrainingCertificates.php">Trainings and Certificates</a>
           </div>
         </div>
       </li>

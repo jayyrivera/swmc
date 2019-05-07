@@ -80,17 +80,13 @@
                     <div class="col-md-4">
                     <select class="form-control" id = "loan_cat" name ="loan_cat">
                     <option value="" disabled selected>Loan Category</option>
-                      <option>abc</option>
-                      <option>abcd</option>
-                      <option>abce</option>
+                     
                     </select>
                     </div>
                     <div class="col-md-4">
-                    <select class="form-control" id = "loan_type" name ="loan_type">
+                    <select class="form-control" id = "sel_type" name ="loan_types">
                     <option value="" disabled selected>Loan Type</option>
-                      <option>abc</option>
-                      <option>abc</option>
-                      <option>abc</option>
+                     
                     </select>
                     </div>
                     <div class="col-md-4">
@@ -192,7 +188,7 @@
       
     
       var str = $( "#loanAccounts" ).serialize();
-      console.log(str)
+      console.log("data",str);
     
       e.preventDefault();
       $.ajax({
@@ -238,7 +234,8 @@
           });
           selectUser();
           populateBaseID();
-        
+          registerCategory();
+          getLoanType();
   });
 
   function selectUser(){
@@ -252,7 +249,7 @@
     // });
 
     $.getJSON("ajax/ajax_selectNameEmbark.php",function(data){
-        console.log(data);
+        console.log("data",data);
         var items="";
         $.each(data,function(index,item) 
         {
@@ -262,6 +259,44 @@
       });
    
   }
+
+  function registerCategory(){
+      $.getJSON("ajax/ajax_selectLoanCategory.php",function(data){
+        console.log(data);
+        var items="";
+        $.each(data,function(index,item) 
+        {
+          items+="<option value='"+item.category+"'>"+item.category+"</option>";
+        });
+        $("#loan_cat").html(items); 
+      });
+    }
+
+    function getLoanType(){
+      $("#loan_cat").change(function(){
+        var deptid = $(this).val();
+        console.log("test",deptid);
+
+        $.ajax({
+            url: 'ajax/ajax_selectLoanType.php',
+            type: 'post',
+            data: {depart:deptid},
+            dataType: 'json',
+            success:function(response){
+                console.log("resposnse",response);
+
+                var len = response.length;
+
+                $("#sel_type").empty();
+                for( var i = 0; i<len; i++){
+                  var name = response[i]['loan_type'];
+                    
+                    $("#sel_type").append("<option value='"+name+"'>"+name+"</option>");
+                }
+            }
+        });
+    });
+    }
 
 
   function populateBaseID(){
