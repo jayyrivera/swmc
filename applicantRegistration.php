@@ -27,7 +27,8 @@
                     <div class="js--image-preview"></div>
                     <div class="upload-options">
                       <label>
-                      <input type="file" class="image-upload" accept="image/*" name = "insertImage" id="insertImage" />
+                      <input name="image" accept="image/jpeg" type="file" class="image-upload">
+                      <!-- <input type="file" class="image-upload" accept="image/*" name = "files" id="files" /> -->
                       </label>
                     </div>
                 </div>
@@ -594,7 +595,7 @@
 
   
      $('#registerApplicants').on('click', function(e) {
-      
+        upload();
     
       var str = $( "#registerApplicant" ).serialize();
       console.log(str)
@@ -687,37 +688,20 @@
   });
 
   }
-  function insertImage(){
-    $.ajax({
-         url: "ajax/ajax_importImage.php",
-   type: "POST",
-   data:  new FormData(this),
-   contentType: false,
-         cache: false,
-   processData:false,
-   beforeSend : function()
-   {
-    //$("#preview").fadeOut();
-    // $("#err").fadeOut();
-   },
-   success: function(data)
-      {
-    if(data=='invalid')
-    {
-     // invalid file format.
-    }
-    else
-    {
-     // view uploaded file.
-     $("#preview").html(data).fadeIn();
-     $("#form")[0].reset(); 
-    }
-      },
-     error: function(e) 
-      {
-    // $("#err").html(e).fadeIn();
-      }          
-    });
+
+  function upload(){
+    var form_data = new FormData($(this));
+
+        $.ajax({
+            url : 'ajax/imageUpload.php', 
+            type : 'POST',
+            data : form_data,
+            processData: false,  // tell jQuery not to process the data
+            contentType: false,
+            success : function(resp){
+                alert(resp.message);
+            }
+        });
   }
 
 

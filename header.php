@@ -110,9 +110,11 @@
         <div id="maintenanceUtitlities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Utilities:</h6>
-            <a class="collapse-item" href="maintenanceVessel.php">Vessels</a>
+            <a class="collapse-item" href="maintenanceLoans.php">Loans</a>
             <a class="collapse-item" href="maintenanceApplicant.php">Applicants</a>
             <a class="collapse-item" href="maintenanceUsers.php">Users</a>
+            <a class="collapse-item" href="maintenanceRanks.php">Ranks</a>
+            <a class="collapse-item" href="maintenanceUsers.php">Trainings and Certificates</a>
           </div>
         </div>
       </li>
