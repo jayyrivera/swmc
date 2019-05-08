@@ -91,15 +91,20 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-3">
+                                <label>Status</label>
                                     <select class="form-control" id="vesselStatus" name = "vesselStatus">
                                         <option value="" disabled selected>Status</option>
-                                        <option>2</option>
+                                        <option>Line up</option>
                                         <option>3</option>
                                         <option>4</option>
                                     </select>
                                 </div>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control form-control-user" id="rank" name = "rank" placeholder="Rank">
+                                    <label> Select Rank</label>
+                                    <!-- <input type="text" class="form-control form-control-user" id="rank" name = "rank" placeholder="Rank"> -->
+                                    <select class="form-control" id="sel_rank" name = "sel_rank">
+                                    <option value="" disabled selected>Select Rank</option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -107,20 +112,23 @@
 
                             <div class="row">
                                 <div class="col-md-4">
+                                <label>First Name</label>
                                     <!-- <input type="text" class="form-control form-control-user" id="firstName" name = "firstName" placeholder="First Name"> -->
                                     <select class="form-control" id="sel_name" name = "sel_name">
                                     <option value="" disabled selected>Select Name</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
+                                <label>Last Name</label>
                                     <!-- <input type="text" class="form-control form-control-user" id="lastName" name = "lastName" placeholder="Last Name"> -->
-                                    <select class="form-control" id="sel_lname" name = "sel_lname">
+                                    <select class="form-control" id="sel_lname" name = "sel_lname"  disabled>
                                     <option value="" disabled selected>Select Last Name</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
+                                <label>Middle Name</label>
                                     <!-- <input type="text" class="form-control form-control-user" id="middleName" name = "middleName" placeholder="Middle Name"> -->
-                                    <select class="form-control" id="sel_mname" name = "sel_mname">
+                                    <select class="form-control" id="sel_mname" name = "sel_mname"  disabled>
                                     <option value="" disabled selected>Select Middle Name</option>
                                     </select>
                                 </div>
@@ -130,13 +138,22 @@
 
                             <div class="row">
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control form-control-user" id="vessel" name = "vessel" placeholder="Vessel">
+                                <label>Vessel</label>
+                                    <!-- <input type="text" class="form-control form-control-user" id="vessel" name = "vessel" placeholder="Vessel"> -->
+                                    <select class="form-control" id="sel_vessel" name = "sel_vessel" >
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control form-control-user" id="type" name = "type" placeholder="Type">
+                                <label>Type</label>
+                                    <!-- <input type="text" class="form-control form-control-user" id="sel_type" name = "sel_type" placeholder="Type"  disabled> -->
+                                    <select class="form-control" id="sel_type" name = "sel_type" disabled>
+                                    </select>
                                 </div>
                                 <div class="col-md-4">
-                                    <input type="text" class="form-control form-control-user" id="gross" name = "gross" placeholder="Gross Tonage">
+                                <label>Gross</label>
+                                    <!-- <input type="text" class="form-control form-control-user" id="sel_gross" name = "sel_gross" placeholder="Gross Tonage"  disabled> -->
+                                    <select class="form-control" id="sel_gross" name = "sel_gross" disabled>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -339,6 +356,8 @@
           });
           selectUser();
           populateBaseID();
+          selectRank();
+          populateVessel();
         
   });
 
@@ -360,6 +379,38 @@
           items+="<option value='"+item.applicantid+"'>"+item.firstname+"</option>";
         });
         $("#sel_name").html(items); 
+      });
+
+      $.getJSON("ajax/ajax_selectVessel.php",function(data){
+        console.log(data);
+        var items="";
+        $.each(data,function(index,item) 
+        {
+          items+="<option value='"+item.vesselname+"'>"+item.vesselname+"</option>";
+        });
+        $("#sel_vessel").html(items); 
+      });
+   
+  }
+
+  function selectRank(){
+    // $.ajax({
+    //     type: "GET",
+    //       dataType: "json",
+    //       url:"ajax/ajax_selectNameEmbark.php",
+    //       success :  function(result){
+    //           console.log(result);
+    //       }
+    // });
+
+    $.getJSON("ajax/ajax_selectRank.php",function(data){
+        console.log(data);
+        var items="";
+        $.each(data,function(index,item) 
+        {
+          items+="<option value='"+item.rank+"'>"+item.rank+"</option>";
+        });
+        $("#sel_rank").html(items); 
       });
    
   }
@@ -393,6 +444,40 @@
                     var mname = response[i]['middlename'];
                     
                     $("#sel_mname").append("<option value='"+id+"'>"+mname+"</option>");
+                }
+            }
+        });
+    });
+  }
+
+  function populateVessel(){
+    $("#sel_vessel").change(function(){
+        var deptid = $(this).val();
+        console.log(deptid);
+
+        $.ajax({
+            url: 'ajax/ajax_autoPopulateVessel.php',
+            type: 'post',
+            data: {depart:deptid},
+            dataType: 'json',
+            success:function(response){
+                console.log(response);
+
+                var len = response.length;
+
+                $("#sel_gross").empty();
+                for( var i = 0; i<len; i++){
+                    var id = response[i]['grosstonage'];
+                   
+                    
+                    $("#sel_gross").append("<option value='"+id+"'>"+id+"</option>");
+                }
+                $("#sel_type").empty();
+                for( var i = 0; i<len; i++){
+                    var id = response[i]['type'];
+                  
+                    
+                    $("#sel_type").append("<option value='"+id+"'>"+id+"</option>");
                 }
             }
         });

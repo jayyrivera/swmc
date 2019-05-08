@@ -6,12 +6,12 @@ if($_POST['function'] == 'save'){
     
 
     $vesselStatus = $_POST['vesselStatus'];
-    $rank = $_POST['rank'];
+    $rank = $_POST['sel_rank'];
     $firstName = $_POST['sel_name'];
     $lastname = $_POST['sel_lname'];
     $middlename = $_POST['sel_mname'];
 
-    $vessel = $_POST['vessel'];
+    $vessel = $_POST['sel_vessel'];
     $type = $_POST['type'];
     $gross = $_POST['gross'];
     
