@@ -94,10 +94,16 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="" id = "principalForm" name ="principalForm">
-        <i class="fas fa-book-reader"></i>
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwos" aria-expanded="true" aria-controls="collapseTwo" id = "principalForm" name ="principalForm">
+          <i class="fas fa-user"></i>
           <span>Principal Request</span>
-        </a>  
+        </a>
+        <div id="collapseTwos" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+          <a class="collapse-item" href="principalForm.php" id = "req" name ="req">Request</a>
+            <a class="collapse-item" href="principalRequestList.php" id = "reqList" name ="reqList">Request List</a>
+          </div>
+        </div>
       </li>
 
       <li class="nav-item">
@@ -342,7 +348,8 @@
               $("#applicantLoanss").hide();
               $("#testMain").hide();
               $("#documentHead").hide();
-              $("#principalForm").hide();
+              // $("#principalForm").hide();
+              $("#req").hide();
             }
             else if(data.designation == "Principal"){
               console.log("Principal");
@@ -350,7 +357,8 @@
               $("#vesselRec").hide();
               $("#embarkHead").hide()
               $("#testMain").hide()
-              $("#documentHead").hide();
+              $("#documentHead").hide();            
+              $("#reqList").hide();
             }
             else if(data.designation == "HR"){
               console.log("HR");
