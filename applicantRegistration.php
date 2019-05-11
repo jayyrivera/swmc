@@ -558,6 +558,7 @@
 
     $(function() {
         var count = 1;
+    
         $('#addBen').click(function(){
             count = count + 1;
                 var html_code = "<tr id='row"+count+"'>";
@@ -691,7 +692,7 @@
 
   function upload(){
     var form_data = new FormData($(this));
-
+  
         $.ajax({
             url : 'ajax/imageUpload.php', 
             type : 'POST',

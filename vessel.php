@@ -5,7 +5,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h1 mb-2 text-primary">SWMC Manpower and Deployment System</h1>
+         
 
         <br>
 

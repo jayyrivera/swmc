@@ -62,9 +62,10 @@
                 <div class="col-sm-12"> 
                     <select class="form-control form-control-user" id = "cRole" name ="cRole">
                     <option value="" disabled selected>Role</option>
-                      <option>Admin</option>
+                      <option>Operations</option>
                       <option>Principal</option>
                       <option>HR</option>
+                      <option>Database Adminstrator</option>
                     </select>
                   </div>
 

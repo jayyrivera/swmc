@@ -5,7 +5,7 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h1 mb-2 text-primary">SWMC Manpower and Deployment System</h1>
+      
 
         <br>
 
@@ -62,13 +62,13 @@
                                 </div>
                                 <div class="col-md-4">
                                     <!-- <input type="text" class="form-control form-control-user" id="lastName" name = "lastName" placeholder="Last Name"> -->
-                                    <select class="form-control" id="sel_lname" name = "sel_lname">
+                                    <select class="form-control" id="sel_lname" name = "sel_lname"  disabled>
                                     <option value="" disabled selected>Select Last Name</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
                                     <!-- <input type="text" class="form-control form-control-user" id="middleName" name = "middleName" placeholder="Middle Name"> -->
-                                    <select class="form-control" id="sel_mname" name = "sel_mname">
+                                    <select class="form-control" id="sel_mname" name = "sel_mname"  disabled>
                                     <option value="" disabled selected>Select Middle Name</option>
                                     </select>
                                 </div>
@@ -84,7 +84,7 @@
                     </select>
                     </div>
                     <div class="col-md-4">
-                    <select class="form-control" id = "sel_type" name ="loan_types">
+                    <select class="form-control" id = "sel_type" name ="loan_types"  disabled>
                     <option value="" disabled selected>Loan Type</option>
                      
                     </select>

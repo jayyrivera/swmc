@@ -59,62 +59,78 @@
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo" id = "applicantList" name ="applicantList">
           <i class="fas fa-user"></i>
           <span>Applicants</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
-            <a class="collapse-item" href="applicantRegistration.php">Create Applicant</a>
-            <a class="collapse-item" href="ViewApplicants.php">Applicant Records</a>
-            <a class="collapse-item" href="applicantLoans.php">Loans</a>
+            <a class="collapse-item" href="applicantRegistration.php" id = "createApplicant" name ="createApplicant">Create Applicant</a>
+            <a class="collapse-item" href="ViewApplicants.php" id = "applicantRecords" name ="applicantRecords">Applicant Records</a>
+            <a class="collapse-item" href="applicantLoans.php" id = "applicantLoanss" name ="applicantLoanss">Loans</a>
           </div>
         </div>
       </li>
 
 
       <li class="nav-item">
-        <a class="nav-link" href="vessel.php">
+        <a class="nav-link" href="vessel.php"  id = "vesselRec" name ="vesselRec">
         <i class="far fa-clipboard"></i>
           <span>Vessel Records</span></a>
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="embarkation.php" >
+        <a class="nav-link collapsed" href="embarkation.php"  id = "embarkHead" name ="embarkHead">
           <i class="fas fa-ship"></i>
           <span>Embarkation</span>
         </a>  
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#reportUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="embarkation.php"  id = "documentHead" name ="documentHead">
+        <i class="fas fa-file-alt"></i>
+          <span>Documents</span>
+        </a>  
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="" id = "principalForm" name ="principalForm">
+        <i class="fas fa-book-reader"></i>
+          <span>Principal Request</span>
+        </a>  
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#reportUtilities" aria-expanded="true" aria-controls="collapseUtilities"  id = "reportHead" name ="reportHead">
           <i class="far fa-file-excel"></i>
           <span>Reports</span>
         </a>
         <div id="reportUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Reports:</h6>
-            <a class="collapse-item" href="vesselReport.php">Emabarkation List</a>
-            <a class="collapse-item" href="applicantReport.php">Applicant List</a>
-            <a class="collapse-item" href="applicantStatus.php">Applicant Status</a>
-            <a class="collapse-item" href="applicantLoansList.php">Applicant Loans</a>
+            <a class="collapse-item" href="vesselReport.php" id = "embarkLists" name ="embarkLists">Emabarkation List</a>
+            <a class="collapse-item" href="applicantReport.php" id = "appList" name ="appList">Applicant List</a>
+            <a class="collapse-item" href="applicantStatus.php" id = "appStat" name ="appStat">Applicant Status</a>
+            <a class="collapse-item" href="applicantLoansList.php" id = "appLoan" name ="appLoan">Applicant Loans</a>
           </div>
         </div>
       </li>
 
+      
+
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#maintenanceUtitlities" aria-expanded="true" aria-controls="collapseUtilities">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#maintenanceUtitlities" aria-expanded="true" aria-controls="collapseUtilities" id ="testMain" name = "testMain">
           <i class="fas fa-cog"></i>
           <span>Maintenance</span>
         </a>
         <div id="maintenanceUtitlities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Utilities:</h6>
-            <a class="collapse-item" href="maintenanceLoans.php">Loans</a>
-            <a class="collapse-item" href="maintenanceApplicant.php">Applicants</a>
-            <a class="collapse-item" href="maintenanceUsers.php">Users</a>
-            <a class="collapse-item" href="maintenanceRanks.php">Ranks</a>
-            <a class="collapse-item" href="maintenanceTrainingCertificates.php">Trainings and Certificates</a>
+            <a class="collapse-item" href="maintenanceLoans.php" id = "mainLoans" name ="mainLoans">Loans</a>
+            <a class="collapse-item" href="maintenanceApplicant.php" id = "mainAppList" name ="mainAppList">Applicants</a>
+            <a class="collapse-item" href="maintenanceUsers.php" id = "mainUsers" name ="mainUsers">Users</a>
+            <a class="collapse-item" href="maintenanceRanks.php" id = "mainRanks" name ="mainRanks">Ranks</a>
+            <a class="collapse-item" href="maintenanceTrainingCertificates.php" id = "trains" name ="trains">Trainings and Certificates</a>
           </div>
         </div>
       </li>
@@ -147,12 +163,7 @@
     <!-- Topbar Search -->
     <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
       <div class="input-group">
-        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-        <div class="input-group-append">
-          <button class="btn btn-primary" type="button">
-            <i class="fas fa-search fa-sm"></i>
-          </button>
-        </div>
+      <h1 class="h6 mb-2 text-primary">SWMC Manpower and Deployment System</h1>
       </div>
     </form>
 
@@ -229,12 +240,7 @@
       </li>
 
       <!-- Nav Item - Messages -->
-      <li class="nav-item dropdown no-arrow mx-1">
-        <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="fas fa-envelope fa-fw"></i>
-          <!-- Counter - Messages -->
-          <span class="badge badge-danger badge-counter">7</span>
-        </a>
+     
         <!-- Dropdown - Messages -->
         <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="messagesDropdown">
           <h6 class="dropdown-header">
@@ -289,7 +295,7 @@
       <!-- Nav Item - User Information -->
       <li class="nav-item dropdown no-arrow">
         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+          <span class="mr-2 d-none d-lg-inline text-gray-600 small" id = "wholeName" name = "wholeName">Valerie Luna</span>
           <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
         </a>
         <!-- Dropdown - User Information -->
@@ -317,4 +323,60 @@
     </ul>
 
   </nav>
+
+  <script src="vendor/jquery/jquery.min.js"></script>
+    <script type="text/javascript">
+
+      $('document').ready(function(){
+
+      $.ajax({
+          type: "POST",
+          dataType: "json",
+          url:"ajax/session.php",
+          success:function(data) {
+            console.log("ROLEE",data);
+            $("#wholeName").text(data.fullname);
+            if(data.designation == "Operations"){
+              console.log("Operations");
+              $("#createApplicant").hide();
+              $("#applicantLoanss").hide();
+              $("#testMain").hide();
+              $("#documentHead").hide();
+              $("#principalForm").hide();
+            }
+            else if(data.designation == "Principal"){
+              console.log("Principal");
+              $("#applicantList").hide();
+              $("#vesselRec").hide();
+              $("#embarkHead").hide()
+              $("#testMain").hide()
+              $("#documentHead").hide();
+            }
+            else if(data.designation == "HR"){
+              console.log("HR");
+              $("#applicantRecords").hide();
+              $("#applicantLoanss").hide();
+              $("#testMain").hide();
+              $("#vesselRec").hide();
+              $("#embarkHead").hide();
+              $("#principalForm").hide();
+              $("#reportHead").hide();
+            }
+            else if(data.designation == "Database Adminstrator"){
+              console.log("Database Adminstrator");
+
+              $("#applicantList").hide();
+              $("#vesselRec").hide();
+              $("#embarkHead").hide()
+              $("#reportHead").hide()
+              $("#principalForm").hide()
+              $("#documentHead").hide();
+            }
+          }
+        });
+
+
+         
+      });
+     </script>
   <!-- End of Topbar -->

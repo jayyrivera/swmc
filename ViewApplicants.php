@@ -6,14 +6,16 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h1 mb-2 text-primary">SWMC Manpower and Deployment System</h1>
+          <h1 class="h1 mb-2 text-primary"></h1>
 
         <br>
 
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
-             
+            <div class="col">
+              <h3 class="m-0 font-weight-bold text-primary">Applicant Records</h3>
+              </div>
             </div>
             <div class="card-body">
               <div class="table-responsive">
