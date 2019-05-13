@@ -36,14 +36,26 @@
               <div class="col-md-8">
                 <div class="row">
                   <div class="col-md-4"> 
-                      <input type="text" class="form-control form-control-user" id="firstName" name = "firtNameApplicant" placeholder="First Name">
-                  </div>
-                  <div class="col-md-4">
-                      <input type="text" class="form-control form-control-user" id="lastName" name = "lastNameApplicant" placeholder="Last Name">
-                  </div>
-                  <div class="col-md-4">
-                      <input type="text" class="form-control form-control-user" id="middleName" name = "middleNameApplicant" placeholder="Middle Name">
-                  </div>
+                  <label>First Name</label>
+                                    <!-- <input type="text" class="form-control form-control-user" id="firstName" name = "firstName" placeholder="First Name"> -->
+                                    <select class="form-control" id="sel_name" name = "sel_name">
+                                    <option value="" disabled selected>Select Name</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                <label>Last Name</label>
+                                    <input type="text" class="form-control form-control-user" id="lastName" name = "lastName" placeholder="Last Name">
+                                    <!-- <select class="form-control" id="sel_lname" name = "sel_lname" disabled>
+                                    <option value="" disabled selected>Select Last Name</option> -->
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                <label>Middle Name</label>
+                                    <input type="text" class="form-control form-control-user" id="middleName" name = "middleName" placeholder="Middle Name">
+                                    <!-- <select class="form-control" id="sel_mname" name = "sel_mname" disabled>
+                                    <option value="" disabled selected>Select Middle Name</option> -->
+                                    </select>
+                                </div>
               </div>
 
               <br>
@@ -153,7 +165,7 @@
           <h1 class="h6 text-gray-900 mb-4">Name of Spouse:</h1>
                 <div class="row">
                   <div class="col-md-3"> 
-                      <input type="text" class="form-control form-control-user" id="firstNameSpouse" name = "firstNameSpouse" placeholder="First Name">
+                      <input type="text" class="form-control form-control-user" id="firstNameSpouse" name = "firstNameSpouse" placeholder="First Name" >
                   </div>
                   <div class="col-md-3">
                       <input type="text" class="form-control form-control-user" id="lastNameSpouse" name = "lastNameSpouse" placeholder="Last Name">
@@ -276,7 +288,153 @@
               </div>
           </div>
       </div>
-      
+      <div class="card mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Legal Beneficiaries and Dependents</h6>
+          </div>
+          <div class="card-body">
+
+          <h1 class="h6 text-gray-900 mb-4">Beneficiaries:</h1>
+
+          <div class="table-responsive">
+                    <table class="table table-bordered" id="ben_table">
+                    <tr>
+                    <th width="30%">Name</th>
+                    <th width="10%">Relationship</th>
+                    <th width="45%">Address</th>
+                    <th width="5%"></th>
+                    </tr>
+                    <tr>
+                    <td contenteditable="true" class="item_name"></td>
+                    <td contenteditable="true" class="item_rel"></td>
+                    <td contenteditable="true" class="item_add"></td>
+                    <td></td>
+                    </tr>
+                    </table>
+                    <div align="right">
+                        <button type="button" name="addBen" id="addBen" class="btn btn-success btn-xs">+</button>
+                    </div>
+            </div>
+
+        
+
+              <br>
+
+              <h1 class="h6 text-gray-900 mb-4">Dependents:</h1>
+
+              <div class="table-responsive">
+                    <table class="table table-bordered" id="dep_table">
+                    <tr>
+                    <th width="30%">Name</th>
+                    <th width="10%">Relationship</th>
+                    <th width="45%">Date of Birth</th>
+                    <th width="5%"></th>
+                    </tr>
+                    <tr>
+                    <td contenteditable="true" class="item_namedep"></td>
+                    <td contenteditable="true" class="item_reldep"></td>
+                    <td contenteditable="true" class="item_dobdep"></td>
+                    <td></td>
+                    </tr>
+                    </table>
+                    <div align="right">
+                        <button type="button" name="addDep" id="addDep" class="btn btn-success btn-xs">+</button>
+                    </div>
+            </div>
+
+           
+          </div>
+      </div>
+      <div class="card mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Allottee</h6>
+          </div>
+          <div class="card-body">
+
+          <div class="row">
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee1" name = "nameAllottee1" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee1" name = "relAllottee1" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee1" name = "addAllottee1" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee2" name = "nameAllottee2" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee2"  name = "relAllottee2" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee2" name = "addAllottee2" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee3" name = "nameAllottee3" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee3" name = "relAllottee3" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee3" name = "addAllottee3" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee4" name = "nameAllottee4" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee4"  name = "relAllottee4" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee4" name = "addAllottee4" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee5" name = "nameAllottee5" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee5" name = "relAllottee5" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addAllottee5" name = "addAllottee5" placeholder="Address">
+                  </div>
+              </div>
+
+              <br>
+
+              <div class="row">
+              <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="nameAllottee6" name = "nameAllottee6" placeholder="Name">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="relAllottee6" name = "relAllottee6" placeholder="Relationship">
+                  </div>
+                  <div class="col-md-4"> 
+                      <input type="text" class="form-control form-control-user" id="addressAllotte6" name = "addressAllotte6" placeholder="Address">
+                  </div>
+              </div>
+              </div>
+              </div>
+
               <div class="card mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">RPS</h6>
@@ -320,10 +478,70 @@
     <script src="vendor/jquery/jquery.min.js"></script>
     <script type="text/javascript">
 
-    $(function() {
-        var count = 1;
     
-        $('#addBen').click(function(){
+   $(function() {
+    var count = 1;
+
+
+    $('#registerApplicants').on('click', function(e) {
+        var str = $( "#registerApplicant" ).serialize();
+            console.log(str)
+    
+      e.preventDefault();
+
+      $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: "function=save&" + str,
+          url:"ajax/ajax_updateDetails.php",
+          success:function(data) {
+            add_Dependents();
+            add_Beneficiaries();
+            if(data.status ==1){
+              alert(data.message);
+            }else{
+              //error message here
+              alert(data.message);
+            }
+              
+          }
+          });
+
+          $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: "function=save&" + str,
+          url:"ajax/ajax_updateEducational.php",
+          success:function(data) {
+            if(data.status ==1){
+              alert(data.message);
+            }else{
+              //error message here
+              alert(data.message);
+            }
+              
+          }
+          });
+
+          $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: "function=save&" + str,
+          url:"ajax/ajax_updateRPS.php",
+          success:function(data) {
+            if(data.status ==1){
+              alert(data.message);
+            }else{
+              //error message here
+              alert(data.message);
+            }
+              
+          }
+          });
+          $('#registerApplicant')[0].reset();
+    });
+
+    $('#addBen').click(function(){
             count = count + 1;
                 var html_code = "<tr id='row"+count+"'>";
                 html_code += "<td contenteditable='true' class='item_name'></td>";
@@ -355,48 +573,162 @@
                 var delete_row = $(this).data("row");
                 $('#' + delete_row).remove();
                 });
+            selectUser()
+            populateBaseID()
+            
+      
+    });
+    function selectUser(){
+    // $.ajax({
+    //     type: "GET",
+    //       dataType: "json",
+    //       url:"ajax/ajax_selectNameEmbark.php",
+    //       success :  function(result){
+    //           console.log(result);
+    //       }
+    // });
 
-
-
-  
-     $('#registerApplicants').on('click', function(e) {
-        upload();
-    
-      var str = $( "#registerApplicant" ).serialize();
-      console.log(str)
-    
-      e.preventDefault();
-      $.ajax({
-          type: "POST",
-          dataType: "json",
-          data: "function=save&" + str,
-          url:"ajax/ajax_applicantRegister.php",
-          success:function(data) {
-
-            if(data.status ==1){
-                insertImage()
-                            $.ajax({
-                                type: "POST",
-                                dataType: "json",
-                                data: "function=save&" + str,
-                                url:"ajax/ajax_applicantEducationBackground.php",
-                                success:function(data) {
-                                    add_Beneficiaries();
-                                    add_Dependents();
-                                }
-                             });
-              alert(data.message);
-            }else{
-              //error message here
-              alert(data.message);
-            }
-
-          }
+    $.getJSON("ajax/ajax_selectNameEmbark.php",function(data){
+        console.log(data);
+        var items="";
+        $.each(data,function(index,item) 
+        {
+          items+="<option value='"+item.applicantid+"'>"+item.firstname+"</option>";
         });
-     }); 
-  });
+        $("#sel_name").html(items); 
+      });
+   
+  }
+
+
+  function populateBaseID(){
+    $("#sel_name").change(function(){
+        var deptid = $(this).val();
+        console.log(deptid);
+
+        $.ajax({
+            url: 'ajax/ajax_autoPopulateNamesEmbark.php',
+            type: 'post',
+            data: {depart:deptid},
+            dataType: 'json',
+            success:function(response){
+                console.log(response);
+
+                
+                $.each(response, function(i,item){
+                    $("#cStatus").empty();
+                    $("#cStatus").append("<option value='"+item.civilstatus+"'>"+item.civilstatus+"</option>");
+                    $("#cStatus").append(new Option("Married", "Married"));
+                    $("#cStatus").append(new Option("Single", "Single"));
+                    $("#cStatus").append(new Option("Divorced", "Divorced"));
+                    $("#cStatus").append(new Option("Widowed", "Widowed"));
+
+                    $("#genderID").empty();
+                    $("#genderID").append("<option value='"+item.gender+"'>"+item.gender+"</option>");
+                    $("#genderID").append(new Option("Male", "Male"));
+                    $("#genderID").append(new Option("Female", "Female"));
+
+                    $("#applicant_status").empty();
+                    $("#applicant_status").append("<option value='"+item.applicant_status+"'>"+item.applicant_status+"</option>");
+                    $("#applicant_status").append(new Option("Active", "Active"));
+                    $("#applicant_status").append(new Option("Not Active", "Not Active"));
+
+
+                    $("#ageID").val(item.age);
+                    $("#suffixID").val(item.suffix);
+                    $("#address").val(item.address);
+                    $("#religion").val(item.religion);
+                    $("#citizenship").val(item.citizenship);
+                    $("#dob").val(item.birthdate);
+                    $("#placeofbirth").val(item.placeofbirth);
+                    $("#height").val(item.height);
+                    $("#weight").val(item.weight);
+                    $("#cellphone").val(item.mobileno);
+                    $("#telephone").val(item.telephoneno);
+                    $("#firstNameSpouse").val(item.spouse_firstname);
+                    $("#middleNameSpouse").val(item.spouse_middlename);
+                    $("#lastNameSpouse").val(item.spouse_lastname);
+                    $("#suffixSpouse").val(item.spouse_suffix);
+                    $("#children").val(item.noofchildren);
+                    $("#fatherfirstName").val(item.father_firstname);
+                    $("#fathermiddleName").val(item.father_middlename);
+                    $("#fatherlastName").val(item.father_lastname);
+                    $("#fatherSuffix").val(item.father_suffix);
+                    $("#motherFirstName").val(item.mother_firstname);
+                    $("#motherMiddleName").val(item.mother_middlename);
+                    $("#motherLastName").val(item.mother_lastname);
+                    $("#motherSuffix").val(item.mother_suffix);
+
+                    console.log(item.civilstatus);
+                });
+
+                var len = response.length;
+
+                $("#sel_lname").empty();
+                for( var i = 0; i<len; i++){
+                    var id = response[i]['applicantid'];
+                    var name = response[i]['lastname'];
+                    $("#lastName").val(name);
+                    // $("#sel_lname").append("<option value='"+id+"'>"+name+"</option>");
+                }
+                $("#sel_mname").empty();
+                for( var i = 0; i<len; i++){
+                    var id = response[i]['applicantid'];
+                    var mname = response[i]['middlename'];
+                    $("#middleName").val(mname);
+                    // $("#sel_mname").append("<option value='"+id+"'>"+mname+"</option>");
+                }
+            }
+        });
+
+
+        $.ajax({
+            url: 'ajax/ajax_applicantDetails.php',
+            type: 'post',
+            data: {depart:deptid},
+            dataType: 'json',
+            success:function(response){
+              
+                $.each(response, function(i,item){
+                    $.each(response, function(i,item){
+                    $("#agency").val(item.agencyrps);
+                    $("#principal").val(item.principalrps);
+                    $("#vessel").val(item.vesselrps);
+                 
+                    
+                });
+                    
+                });
+            }
+        });
+        $.ajax({
+            url: 'ajax/ajax_educationalData.php',
+            type: 'post',
+            data: {depart:deptid},
+            dataType: 'json',
+            success:function(response){
+
+                $.each(response, function(i,item){
+                    $("#school").val(item.schoolname);
+                    $("#fromEducation").val(item.sch_frm_yr);
+                    $("#yearEducation").val(item.sch_to_yr);
+                    $("#sssno").val(item.sss_no);
+                    $("#srcNo").val(item.src_sid_no);
+                    $("#ofwNo").val(item.ofw_ecard_no);
+                    $("#phNo").val(item.philhealth_no);
+                    $("#pgbno").val(item.passpost_no);
+                    $("#passno").val(item.pagibig_no);
+                    
+                });
+                console.log(response);
+
+            }
+        });
+    });
+  }
 
   function add_Beneficiaries(){
+  var deptid = $('#sel_name').val();
   var item_name = [];
   var item_rel = [];
   var item_add = [];
@@ -410,11 +742,16 @@
     item_add.push($(this).text());
   });
   $.ajax({
-   url:"ajax/ajax_applicantBeneficiaries.php",
+   url:"ajax/ajax_updateBen.php",
    method:"POST",
-   data:{item_name:item_name, item_rel:item_rel, item_add:item_add},
+   data:{item_name:item_name, item_rel:item_rel, item_add:item_add, depart:deptid },
    success:function(data){
-    alert(data);
+    if(data.status ==1){
+              alert(data.message);
+            }else{
+              //error message here
+              alert(data.message);
+            }
     $("td[contentEditable='true']").text("");
     for(var i=2; i<= count; i++)
     {
@@ -426,6 +763,7 @@
   }
 
   function add_Dependents(){
+    var deptid = $('#sel_name').val();
   var item_namedep = [];
   var item_reldep = [];
   var item_dobdep = [];
@@ -439,11 +777,16 @@
     item_dobdep.push($(this).text());
   });
   $.ajax({
-   url:"ajax/ajax_applicantDependent.php",
+   url:"ajax/ajax_updateDept.php",
    method:"POST",
-   data:{item_namedep:item_namedep, item_reldep:item_reldep, item_dobdep:item_dobdep},
+   data:{item_namedep:item_namedep, item_reldep:item_reldep, item_dobdep:item_dobdep, depart:deptid},
    success:function(data){
-    alert(data);
+    if(data.status ==1){
+              alert(data.message);
+            }else{
+              //error message here
+              alert(data.message);
+            }
     $("td[contentEditable='true']").text("");
     for(var i=2; i<= count; i++)
     {
@@ -453,22 +796,6 @@
   });
 
   }
-
-  function upload(){
-    var form_data = new FormData($(this));
-  
-        $.ajax({
-            url : 'ajax/imageUpload.php', 
-            type : 'POST',
-            data : form_data,
-            processData: false,  // tell jQuery not to process the data
-            contentType: false,
-            success : function(resp){
-                alert(resp.message);
-            }
-        });
-  }
-
 
 </script>
 </body>

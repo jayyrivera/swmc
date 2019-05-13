@@ -27,8 +27,8 @@
                     <div class="js--image-preview"></div>
                     <div class="upload-options">
                       <label>
-                      <input name="image" accept="image/jpeg" type="file" class="image-upload">
-                      <!-- <input type="file" class="image-upload" accept="image/*" name = "files" id="files" /> -->
+                      <!-- <input name="image" accept="image/jpeg" type="file" class="image-upload"> -->
+                      <input type="file" class="image-upload" accept="image/*" name = "image" id="files" />
                       </label>
                     </div>
                 </div>
@@ -596,7 +596,7 @@
 
   
      $('#registerApplicants').on('click', function(e) {
-        upload();
+       
     
       var str = $( "#registerApplicant" ).serialize();
       console.log(str)
@@ -610,7 +610,6 @@
           success:function(data) {
 
             if(data.status ==1){
-                insertImage()
                             $.ajax({
                                 type: "POST",
                                 dataType: "json",
@@ -619,6 +618,7 @@
                                 success:function(data) {
                                     add_Beneficiaries();
                                     add_Dependents();
+                                    upload();
                                 }
                              });
               alert(data.message);
@@ -691,18 +691,31 @@
   }
 
   function upload(){
-    var form_data = new FormData($(this));
-  
-        $.ajax({
-            url : 'ajax/imageUpload.php', 
-            type : 'POST',
-            data : form_data,
-            processData: false,  // tell jQuery not to process the data
-            contentType: false,
-            success : function(resp){
-                alert(resp.message);
-            }
-        });
+    $.ajax({
+		
+		//Getting the url of the uploadphp from action attr of form 
+		//this means currently selected element which is our form 
+		url:"ajax/imageUpload.php",
+		
+		//For file upload we use post request
+		type: "POST",
+		
+		//Creating data from form 
+		data: new FormData(this),
+		
+		//Setting these to false because we are sending a multipart request
+		contentType: false,
+		cache: false,
+		processData: false,
+		success: function(data){
+			//If the request is successfull we will get the scripts output in data variable 
+			//Showing the result in our html element 
+			// $('#msg').html(data);
+            console.log("uploaded", data);
+		},
+		error: function(){}
+	});
+    
   }
 
 

@@ -1,27 +1,30 @@
 <?php
-include("../db_connection.php");
+// include("../db_connection.php");
 // Check if image file is a actual image or fake image
-
-if (isset($_FILES['files']) && $_FILES['files']['size'] > 0) { 
-    // Temporary file name stored on the server
-    $tmpName  = $_FILES['files  ']['tmp_name'];  
-    // Read the file 
-    $fp      = fopen($tmpName, 'r');
-    $data = fread($fp, filesize($tmpName));
-    $data = addslashes($data);
-    fclose($fp);
-    $result = mysql_query("INSERT INTO applicant_image (images)VALUES ( '$data')", $conn);
-    if(!$result)
-    {
-        die("Database query failed: ". mysql_error());
-    }
-    // Print results
-
-    print "Thank you, your file has been uploaded.";
-}
-else 
+$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt'); // valid extensions
+if(isset($_FILES['image']))
 {
-    print "No image selected/uploaded";
+    $name = $_FILES['image']['name'];
+		
+    //Getting temporary file name stored in php tmp folder 
+    $tmp_name = $_FILES['image']['tmp_name'];
+    
+    //Path to store files on server
+    $path = 'uploads/';
+    
+    //checking file available or not 
+    if(!empty($name)){
+        //Moving file to temporary location to upload path 
+        move_uploaded_file($tmp_name,$path.$name);
+        
+        //Displaying success message 
+        print("rrrrrr");
+        echo "Upload successfully";
+    }else{
+        //If file not selected displaying a message to choose a file 
+        echo "Please choose a file";
+        print("sssss");
+    }
 }
 
 ?>

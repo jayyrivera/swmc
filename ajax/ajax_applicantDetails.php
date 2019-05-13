@@ -3,7 +3,7 @@ include("../db_connection.php");
 
 $departid = $_POST['depart'];   // department id
 
-$sql = "SELECT * FROM applicant_tbl WHERE applicantid=".$departid;
+$sql = "SELECT * FROM rps WHERE applicantid=".$departid;
 
 $res = mysqli_query($conn, $sql) or die("Error: ".mysqli_error($conn));
 

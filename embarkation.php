@@ -371,7 +371,7 @@
     //       }
     // });
 
-    $.getJSON("ajax/ajax_selectNameEmbark.php",function(data){
+    $.getJSON("ajax/ajax_selectActiveEmbark.php",function(data){
         console.log(data);
         var items="";
         $.each(data,function(index,item) 
