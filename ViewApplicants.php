@@ -20,6 +20,10 @@
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataApplicants" name = "dataApplicant" width="100%" cellspacing="0" >
+                <thead>
+                  <tr id="filters">
+                  </tr>
+              </thead>
                 </table>
               </div>
             </div>
@@ -69,6 +73,20 @@
                       ]
                       
                   }) 
+                     
+                  $('#dataApplicants thead tr:eq(1) th').each( function () {
+                    var title = $('#dataApplicants thead tr:eq(1) th').eq( $(this).index() ).text();
+                    $(this).html( '<input type="text" placeholder="'+title+'" />' );
+                } ); 
+
+
+                    table.columns().every(function (index) {
+                        $('#dataApplicants thead tr:eq(1) th:eq(' + index + ') input').on('keyup change', function () {
+                            table.column($(this).parent().index() + ':visible')
+                                .search(this.value)
+                                .draw();
+                        });
+                    });  // just to see I'm getting the correct data.  // just to see I'm getting the correct data.
               }
           });
       });

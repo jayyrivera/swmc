@@ -15,7 +15,7 @@
               <div class="col">
               <h3 class="m-0 font-weight-bold text-primary">Applicant Status</h3>
               </div>
-              <div class="col">
+              <div class="col-md-3">
               <a href="excelApplicantStatus.php?export=true" class="btn btn-primary btn-icon-split" style="float: right;">
                     <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
@@ -30,6 +30,10 @@
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="applicantStatus" width="100%" cellspacing="0">
+                <thead>
+                  <tr id="filters">
+                  </tr>
+              </thead>
                 </table>
               </div>
             </div>
@@ -51,6 +55,8 @@
 
       $('document').ready(function()
       {
+              
+       
 
           $.ajax({
             type: "GET",
@@ -60,10 +66,11 @@
               {
                   //pass data to datatable
                   console.log(result); // just to see I'm getting the correct data.
-                  $('#applicantStatus').DataTable({
+                  var table = $('#applicantStatus').DataTable({
                     "searching": true,
                     "ajax": "ajax/ajax_applicantPopulate.php", 
                     "header": true,
+                    "orderCellsTop": true,
                     "columns" : [
                       {"data": "applicant_status", "title": "Status"},
                       {"data": "firstname", "title": "First Name"},
@@ -74,11 +81,28 @@
                       {"data": "birthdate", "title": "Birthdate"},
                       {"data": "mobileno", "title": "Mobile No."},
                       {"data": "address","title": "Address"},
-                      ]
+                      ],
+
                       
                   }) 
+                  $('#applicantStatus thead tr:eq(1) th').each( function () {
+                    var title = $('#applicantStatus thead tr:eq(1) th').eq( $(this).index() ).text();
+                    $(this).html( '<input type="text" placeholder="'+title+'" />' );
+                } ); 
+
+
+                    table.columns().every(function (index) {
+                        $('#applicantStatus thead tr:eq(1) th:eq(' + index + ') input').on('keyup change', function () {
+                            table.column($(this).parent().index() + ':visible')
+                                .search(this.value)
+                                .draw();
+                        });
+                    });
+
               }
           });
+
+          
       });
      </script>
 

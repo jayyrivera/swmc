@@ -8,7 +8,7 @@
          
 
         <br>
-
+        <p id="selectTriggerFilter"><label><b>Filter:</b></label><br></p>
           <!-- DataTales Example -->
           <div class="card shadow mb-4">
             <div class="card-header py-3">
@@ -16,7 +16,7 @@
               <div class="col">
               <h3 class="m-0 font-weight-bold text-primary">Vessels</h3>
               </div>
-              <div class="col">
+              <div class="col-md-2">
               <a href="#" class="btn btn-primary btn-icon-split" style="float: right;" data-toggle="modal" data-target="#myModal">
                     <span class="icon text-white-50">
                     <i class="fas fa-plus"></i>
@@ -30,6 +30,10 @@
             <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="vesselsData" name = "dataApplicant" width="100%" cellspacing="0" >
+                <thead>
+                  <tr id="filters">
+                  </tr>
+              </thead>
                 </table>
               </div>
             </div>
@@ -177,11 +181,12 @@
             type: "GET",
           dataType: "json",
           url:"ajax/ajax_vesselPopulate.php",
+          
           success :  function(result)
               {
                   //pass data to datatable
                   console.log(result);
-                  $('#vesselsData').DataTable({
+                 var table = $('#vesselsData').DataTable({
                     "searching": true,
                     "ajax": "ajax/ajax_vesselPopulate.php", 
                     "header": true,
@@ -206,9 +211,29 @@
                       {"data": "yearbuilt","title": "Year Built"}
                       ]
                       
-                  })  // just to see I'm getting the correct data.
+                  })
+
+                  
+                  
+                  
+                  $('#vesselsData thead tr:eq(1) th').each( function () {
+                    var title = $('#vesselsData thead tr:eq(1) th').eq( $(this).index() ).text();
+                    $(this).html( '<input type="text" placeholder="'+title+'" />' );
+                } ); 
+
+
+                    table.columns().every(function (index) {
+                        $('#vesselsData thead tr:eq(1) th:eq(' + index + ') input').on('keyup change', function () {
+                            table.column($(this).parent().index() + ':visible')
+                                .search(this.value)
+                                .draw();
+                        });
+                    });  // just to see I'm getting the correct data.  // just to see I'm getting the correct data.
               }
           });
+
+
+      
   });
 
 </script>
