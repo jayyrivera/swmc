@@ -10,7 +10,7 @@ if(isset($_FILES['image']))
     $tmp_name = $_FILES['image']['tmp_name'];
     
     //Path to store files on server
-    $path = 'uploads/';
+    $path = 'http://localhost/swmc/uploads';
     
     //checking file available or not 
     if(!empty($name)){

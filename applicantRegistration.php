@@ -691,8 +691,9 @@
   }
 
   function upload(){
+    console.log(window.location.host);
     $.ajax({
-		
+	
 		//Getting the url of the uploadphp from action attr of form 
 		//this means currently selected element which is our form 
 		url:"ajax/imageUpload.php",

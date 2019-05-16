@@ -9,7 +9,7 @@
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
                                 <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Embarked</div>
-                                <div class="h5 mb-0 font-weight-bold text-gray-800">25</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800" id = "numberEmbarked"></div>
                             </div>
                             <div class="col-auto">
                                 <i class="fas fa-3x fa-user-check"></i>
@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="col-xl-3 col-md-6 mb-4">
+            <!-- <div class="col-xl-3 col-md-6 mb-4">
                 <div class="card border-left-success shadow h-100 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
@@ -34,7 +34,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <hr class="sidebar-divider">
 
@@ -318,6 +318,22 @@
         });
         $('#embarkForm')[0].reset();
      }); 
+
+     $.ajax({
+        type: "GET",
+          dataType: "json",
+          url:"ajax/ajax_countOfEmbarked.php",
+          success :  function(result)
+              {
+                  $.each(result,function(index,item) 
+                {
+                    $('#numberEmbarked').text(item.count);
+                });
+               
+              }
+     });
+
+   
  
 
       $.ajax({
