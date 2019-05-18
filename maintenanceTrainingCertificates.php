@@ -15,7 +15,7 @@
             <div class="card-header py-3">
             <div class="row">
               <div class="col">
-              <h3 class="m-0 font-weight-bold text-primary">Add Rank</h3>
+              <h3 class="m-0 font-weight-bold text-primary">Add Certificates</h3>
               </div>
               <div class="col">
               <!-- <a href="registration.php" class="btn btn-primary btn-icon-split" style="float: right;" data-toggle="modal" data-target="#myModal">
@@ -39,6 +39,14 @@
                                 <input type="text" class="form-control form-control-user" id="certificateCat" name="certificateCat" placeholder="Category">
                                 </div>
                             </div>
+                            <br>
+                             <div class = "col-md-12">
+                                  <div class="alert alert-danger" role="alert" id="registeralert">
+                                                  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                  <span id="textalertregister"> </span>
+                                              </div>
+                                  </div>
+                              </div>
 
                             <br>
                                 <button class="btn btn-primary btn-user btn-block" id="registerCert">
@@ -56,9 +64,16 @@
     <script type="text/javascript">
 
     $(function() {
+      $("#registeralert").hide();
     
         $('#registerCert').on('click', function(e) {
             e.preventDefault(); 
+
+            if($("#certificateName").val() == "" || $("#certificateCat").val() == ""){
+          $("#registeralert").show(); //to show alert pane
+          $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
         var str = $( "#certificateRegister" ).serialize();
         $.ajax({
           type: "POST",

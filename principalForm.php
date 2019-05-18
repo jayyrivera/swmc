@@ -83,9 +83,19 @@
                             </div>
 
                             <br>
+
+                            <div class = "col-md-12">
+                              <div class="alert alert-danger" role="alert" id="registeralert">
+                                              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                              <span id="textalertregister"> </span>
+                                          </div>
+                              </div>
+
+                            <br>
                                 <button class="btn btn-primary btn-user btn-block" id="registerRequest">
                                             Request
                                             </button>
+                                            
 
             </div>
           </div>
@@ -96,9 +106,11 @@
 
 <script src="vendor/jquery/jquery.min.js"></script>
     <script type="text/javascript">
-
+   
     $(function() {
-    
+
+     
+      $("#registeralert").hide();
         $.getJSON("ajax/ajax_selectVessel.php",function(data){
         console.log(data);
         var items="";
@@ -110,6 +122,14 @@
       });
 
       $('#registerRequest').on('click', function(e) {
+
+        if($("#request_vessel").val() == "" || $("#dateEnrolledRequest").val() == "" || $("#due_date").val() == "" || $("#destination").val() == "" ||  $("#capacity").val() == "" ){
+          $("#registeralert").show(); //to show alert pane
+          $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
+
+
         var str = $( "#requestPrincipal" ).serialize();
       console.log(str)
     

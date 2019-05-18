@@ -37,6 +37,16 @@
                             </div>
 
                             <br>
+
+                            <div class = "col-md-12">
+                                <div class="alert alert-danger" role="alert" id="registeralert1">
+                                                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                                <span id="textalertregister1"> </span>
+                                            </div>
+                                </div>
+                  
+
+                            <br>
                                 <button class="btn btn-primary btn-user btn-block" id="registerCategory">
                                             Register Loan Category
                                             </button>
@@ -71,6 +81,15 @@
                             </div>
 
                             <br>
+
+                            <div class = "col-md-12">
+                              <div class="alert alert-danger" role="alert" id="registeralert">
+                                              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                              <span id="textalertregister"> </span>
+                                          </div>
+                              </div>
+
+                            <br>
                                 <button class="btn btn-primary btn-user btn-block" id="registerLoanType">
                                             Register Loan Type
                                             </button>
@@ -89,8 +108,17 @@
     <script type="text/javascript">
 
     $(function() {
+      $("#registeralert1").hide();
+      $("#registeralert").hide();
+
     
         $('#registerCategory').on('click', function(e) {
+
+          if($("#loanCategory").val() == ""){
+          $("#registeralert1").show(); //to show alert pane
+          $("#textalertregister1").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
             e.preventDefault(); 
         var str = $( "#loanRegister" ).serialize();
         $.ajax({
@@ -113,6 +141,12 @@
     });
 
     $('#registerLoanType').on('click', function(e) {
+
+      if($("#loanType").val() == "" || $("#sel_loan_cat").val() == "" ){
+          $("#registeralert").show(); //to show alert pane
+          $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
             e.preventDefault(); 
         var str = $( "#loanRegister" ).serialize();
         console.log("STR", str);

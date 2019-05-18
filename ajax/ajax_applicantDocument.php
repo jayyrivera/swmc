@@ -48,24 +48,25 @@ include("../db_connection.php");
 //     echo json_encode($response);
 
 // }
-if(isset($_POST["item_namedep"]))
+if(isset($_POST["doc_name"]))
 {
- $item_namedep = $_POST["item_namedep"];
- $item_reldep = $_POST["item_reldep"];
- $item_dobdep = $_POST["item_dobdep"];
 
+ $doc_name = $_POST["doc_name"];
+ $doc_date = $_POST["doc_date"];
+ $doc_exp = $_POST["doc_exp"];
+ 
  $query = "";
-
- for($count = 0; $count<count($item_namedep); $count++)
+ 
+ for($count = 0; $count<count($doc_name); $count++)
  {
-  $item_name_clean = mysqli_real_escape_string($conn, $item_namedep[$count]);
-  $item_code_clean = mysqli_real_escape_string($conn, $item_reldep[$count]);
-  $item_desc_clean = mysqli_real_escape_string($conn, $item_dobdep[$count]);
+  $item_name_clean = mysqli_real_escape_string($conn, $doc_name[$count]);
+  $item_code_clean = mysqli_real_escape_string($conn, $doc_date[$count]);
+  $item_desc_clean = mysqli_real_escape_string($conn, $doc_exp[$count]);
   if($item_name_clean != '' && $item_code_clean != '' && $item_desc_clean != '')
   {
-   $query = "INSERT INTO `dependents`(`applicantid`, `dependentName`, `dependentRelation`, `dependentDob`) 
+   $query = "INSERT INTO `applicant_documents`( `applicantid`, `documentName`, `date_passed`, `exp_date`) 
         VALUES ((SELECT MAX(applicantId) FROM applicant_tbl),'$item_name_clean','$item_code_clean','$item_desc_clean')";
-
+  print($query);
 
         if (mysqli_query($conn, $query)) {
             $response = array("status" => 1, "message" => "Account has been successfulyl registered!");
@@ -73,9 +74,9 @@ if(isset($_POST["item_namedep"]))
             $response = array("status" => 2, "message" =>  "saving failed!" );
         }
   }
-
+  
  }
- echo json_encode($response);
+ 
 }
 
 

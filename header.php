@@ -87,7 +87,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="embarkation.php"  id = "documentHead" name ="documentHead">
+        <a class="nav-link collapsed" href="applicantDocument.php"  id = "documentHead" name ="documentHead">
         <i class="fas fa-file-alt"></i>
           <span>Documents</span>
         </a>  

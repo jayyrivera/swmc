@@ -46,6 +46,14 @@
                             </div>
 
                             <br>
+                            <div class = "col-md-12">
+                              <div class="alert alert-danger" role="alert" id="registeralert">
+                                              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                              <span id="textalertregister"> </span>
+                                          </div>
+                              </div>
+
+                            <br>
                                 <button class="btn btn-primary btn-user btn-block" id="registerRank">
                                             Register Rank
                                             </button>
@@ -61,9 +69,15 @@
     <script type="text/javascript">
 
     $(function() {
+      // $("#registeralert").hide();
     
         $('#registerRank').on('click', function(e) {
             e.preventDefault(); 
+            if($("#rankName").val() == "" || $("#rankCode").val() == "" || $("#rankCat").val() == "" ){
+          $("#registeralert").show(); //to show alert pane
+          $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
         var str = $( "#rankRegister" ).serialize();
         $.ajax({
           type: "POST",

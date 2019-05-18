@@ -133,7 +133,13 @@
                         <label>Year Built</label>
                         <input type="date"  min="1000-01-01" max="3000-12-31" name ="yearBuilt" id="yearBuilt" class="form-control">
                     </div>
-
+                    <br>
+                    <div class = "col-md-12">
+                    <div class="alert alert-danger" role="alert" id="registeralert">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <span id="textalertregister"> </span>
+                                </div>
+                    </div>
                 </div>
 
             </div>
@@ -150,16 +156,25 @@
     <script type="text/javascript">
 
     $(function() {
-
+    $("#registeralert").hide();
      
   
      $('#registerVessel').on('click', function(e) {
-      
+        e.preventDefault();
+
+        if($("#vesselNo").val() == "" || $("#vesselName").val() == "" || $("#vesselPrincipal").val() == "" || $("#vesselFlag").val() == "" ||  $("#vesselGross").val() == "" 
+        ||  $("#vesselJSU").val() == "" ||  $("#vesselEngine").val() == "" ||  $("#vesselPort").val() == "" ||  $("#vesselOff").val() == "" ||  $("#vesselCBA").val() == "" ||  $("#vesselIMO").val() == ""
+        ||  $("#vesselAbr").val() == "" ||  $("#vesselStatus").val() == "" ||  $("#vesselHp").val() == "" ||  $("#vesselType").val() == "" ||  $("#dateEnrolled").val() == "" ||  $("#yearBuilt").val() == "" ){
+          $("#registeralert").show(); //to show alert pane
+          $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
+       
     
       var str = $( "#vesselAccount" ).serialize();
       console.log(str)
     
-      e.preventDefault();
+     
       $.ajax({
           type: "POST",
           dataType: "json",
@@ -212,6 +227,11 @@
                       ]
                       
                   })
+                  var oTable = $('#vesselsData'). dataTable();
+                    $('#vesselsData').on('click', 'tr', function(){
+                    var oData = oTable.fnGetData(this);
+                    console.log(oData);
+                    });
 
                   
                   

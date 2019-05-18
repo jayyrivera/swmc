@@ -182,12 +182,12 @@
                                     <input type="text" class="form-control form-control-user" id="port" name = "port" placeholder="Port">
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="form-control" id="disembarkedFlight" name = "disembarkedFlight">
+                                    <!-- <select class="form-control" id="disembarkedFlight" name = "disembarkedFlight">
                                         <option value="" disabled selected>Disembarked</option>
                                         <option>2</option>
                                         <option>3</option>
                                         <option>4</option>
-                                    </select>
+                                    </select> -->
                                 </div>
                             </div>
 
@@ -273,6 +273,11 @@
                                 <div class="col-md-12">
                                     <textarea class="form-control" rows="3" id="remards" name = "remards"></textarea>
                                 </div>
+                                <div class = "col-md-12">
+                                <div class="alert alert-danger" role="alert" id="registeralert">
+                                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                    <span id="textalertregister"> </span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -294,10 +299,17 @@
     $(function() {
 
      
-  
+        $("#registeralert").hide();
      $('#addEmabarked').on('click', function(e) {
-      
-    
+
+        if($("#vesselStatus").val() == "" || $("#sel_rank").val() == "" || $("#sel_name").val() == "" || $("#sel_lname").val() == "" ||  $("#sel_mname").val() == "" ||  $("#sel_vessel").val() == "" ||  $("#sel_type").val() == ""
+        ||  $("#sel_gross").val() == "" ||  $("#dateEnrolled").val() == "" ||  $("#port").val() == "" ||  $("#disembarked").val() == "" ||  $("#duration").val() == "" ||  $("#embarkedDate").val() == "" ||  $("#disembarkedDate").val() == ""
+        ||  $("#next").val() == "" ||  $("#license").val() == "" ||  $("#remards").val() == "" ){
+          $("#registeralert").show(); //to show alert pane
+          $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
+ 
       var str = $( "#embarkForm" ).serialize();
       console.log(str)
     

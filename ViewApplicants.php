@@ -46,8 +46,11 @@
       <script src="vendor/jquery/jquery.min.js"></script>
     <script type="text/javascript">
 
+      var editor;
       $('document').ready(function()
       {
+
+
 
           $.ajax({
             type: "GET",
@@ -57,10 +60,11 @@
               {
                   //pass data to datatable
                   console.log(result); // just to see I'm getting the correct data.
-                  $('#dataApplicants').DataTable({
+                var table =  $('#dataApplicants').DataTable({
                     "searching": true,
                     "ajax": "ajax/ajax_applicantPopulate.php", 
                     "header": true,
+                    "select":"single",
                     "columns" : [
                       {"data": "firstname", "title": "First Name"},
                       {"data": "lastname", "title": "Last Name"},
@@ -86,7 +90,10 @@
                                 .search(this.value)
                                 .draw();
                         });
-                    });  // just to see I'm getting the correct data.  // just to see I'm getting the correct data.
+                    });
+                    
+                  
+                   
               }
           });
       });

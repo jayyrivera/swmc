@@ -423,6 +423,35 @@
               </div> -->
           </div>
       </div>
+
+      <div class="card mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Documents</h6>
+          </div>
+          <div class="card-body">
+
+          <div class="table-responsive">
+                    <table class="table table-bordered" id="doc_table">
+                    <tr>
+                    <th width="25%">Document Name</th>
+                    <th width="35%">Date Passed (YYYY/DD/MM)</th>
+                    <th width="35%">Date Expiry (YYYY/DD/MM)</th>
+                    <th width="5%"></th>
+                    </tr>
+                    <tr>
+                    <td contenteditable="true" class="doc_name"></td>
+                    <td contenteditable="true" class="doc_date" id = "doc_dates" type ="date"></td>
+                    <td contenteditable="true" class="doc_exp" id = "doc_exps" type ="date"></td>
+                    <td></td>
+                    </tr>
+                    </table>
+                    <div align="right">
+                        <button type="button" name="addDoc" id="addDoc" class="btn btn-success btn-xs">+</button>
+                    </div>
+            </div>
+            </div>
+      </div>
+
       <div class="card mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Allottee</h6>
@@ -557,8 +586,25 @@
     <script type="text/javascript">
 
     $(function() {
+       
         var count = 1;
-    
+        $('#addDoc').click(function(){
+            count = count + 1;
+                var html_code = "<tr id='row"+count+"'>";
+                html_code += "<td contenteditable='true' class='doc_name'></td>";
+                html_code += "<td contenteditable='true' class='doc_date' id = 'doc_dates' type ='date'></td>";
+                html_code += "<td contenteditable='true' class='doc_exp' id = 'doc_exps' type ='date'></td>";
+                html_code += "<td><button type='button' name='removeDoc' data-row='row"+count+"' class='btn btn-danger btn-xs removeBen'>X</button></td>";   
+                html_code += "</tr>";  
+                $('#doc_table').append(html_code);
+                });
+
+                 $(document).on('click', '.removeDoc', function(){
+                var delete_row = $(this).data("row");
+                $('#' + delete_row).remove();
+                });
+
+
         $('#addBen').click(function(){
             count = count + 1;
                 var html_code = "<tr id='row"+count+"'>";
@@ -594,7 +640,7 @@
 
 
 
-  
+               
      $('#registerApplicants').on('click', function(e) {
        
     
@@ -618,7 +664,9 @@
                                 success:function(data) {
                                     add_Beneficiaries();
                                     add_Dependents();
+                                    add_documents();
                                     upload();
+                                  
                                 }
                              });
               alert(data.message);
@@ -650,7 +698,39 @@
    method:"POST",
    data:{item_name:item_name, item_rel:item_rel, item_add:item_add},
    success:function(data){
-    alert(data);
+    // alert(data);
+    $("td[contentEditable='true']").text("");
+    for(var i=2; i<= count; i++)
+    {
+     $('tr#'+i+'').remove();
+    }
+   }
+  });
+
+  }
+
+  function add_documents(){
+;
+  var doc_name = [];
+  var doc_date = [];
+  var doc_exp = [];
+  $('.doc_name').each(function(){
+    doc_name.push($(this).text());
+  });
+  $('.doc_date').each(function(){
+    var mydate = new Date($(this).text());
+    
+    doc_date.push(mydate);
+  });
+  $('.doc_exp').each(function(){
+    doc_exp.push($(this).text());
+  });
+  $.ajax({
+   url:"ajax/ajax_applicantDocument.php",
+   method:"POST",
+   data:{doc_name:doc_name, doc_date:doc_date, doc_exp:doc_exp},
+   success:function(data){
+    // alert(data);
     $("td[contentEditable='true']").text("");
     for(var i=2; i<= count; i++)
     {
@@ -679,7 +759,7 @@
    method:"POST",
    data:{item_namedep:item_namedep, item_reldep:item_reldep, item_dobdep:item_dobdep},
    success:function(data){
-    alert(data);
+    // alert(data);
     $("td[contentEditable='true']").text("");
     for(var i=2; i<= count; i++)
     {
