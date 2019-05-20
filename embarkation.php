@@ -419,11 +419,11 @@
     // });
 
     $.getJSON("ajax/ajax_selectActiveEmbark.php",function(data){
-        console.log(data);
+        console.log("dsadddddddddddddddddddddddd",data);
         var items="";
         $.each(data,function(index,item) 
         {
-          items+="<option value='"+item.applicantid+"'>"+item.firstname+"</option>";
+          items+="<option value='"+item.applicantId+"'>"+item.firstname+"</option>";
         });
         $("#sel_name").html(items); 
       });

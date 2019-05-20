@@ -1,7 +1,8 @@
 <?php
 include("../db_connection.php");
 
-$sql = "SELECT applicantid, firstname, lastname, middlename FROM `applicant_tbl` where applicant_status = 'Active'";
+$sql = "select applicant_tbl.applicantId, applicant_tbl.firstname, applicant_tbl.lastname, applicant_tbl.middlename from applicant_tbl WHERE applicant_tbl.applicantid IN ( SELECT applicant_documents.applicantid FROM applicant_documents GROUP BY applicant_documents.applicantid HAVING COUNT(*) > 5 ) 
+AND applicant_tbl.applicant_status = 'Active'";
 $res = mysqli_query($conn, $sql) or die("Error: ".mysqli_error($conn));
 
 // $dataArray = array();
