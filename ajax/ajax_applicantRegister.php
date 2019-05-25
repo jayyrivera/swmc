@@ -2,7 +2,8 @@
 include("../db_connection.php");
 
 if($_POST['function'] == 'save'){
-
+   
+    $files = $_POST['idname'];
     $regFname = $_POST['firtNameApplicant'];
     $regLname = $_POST['lastNameApplicant'];
     $regMiddleName = $_POST['middleNameApplicant'];
@@ -20,6 +21,7 @@ if($_POST['function'] == 'save'){
     $cellphone = $_POST['cellphone'];
     $telephone = $_POST['telephone'];
     $status = $_POST['applicant_status'];
+    
     
 
     // familybacground
@@ -45,17 +47,15 @@ if($_POST['function'] == 'save'){
                 ,'".$cellphone."','".$height."','".$weight."','".$firstNameSpouse."','".$middleNameSpouse."','".$lastNameSpouse."','".$suffixSpouse."','".$children."','".$fatherfirstName."'
                 ,'".$fathermiddleName."','".$fatherlastName."','".$fatherSuffix."','".$motherFirstName."','".$motherMiddleName."','".$motherLastName."','".$motherSuffix."')";
 
-    
+  
     if (mysqli_query($conn, $sql)) {
         $response = array("status" => 1, "message" => "Account has been successfulyl registered!");
     } else {
         $response = array("status" => 2, "message" =>  "saving failed!" );
     }
+
+    
     
     echo json_encode($response);
-
 }
-
-
-
 ?>

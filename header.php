@@ -334,7 +334,7 @@
     <script type="text/javascript">
 
       $('document').ready(function(){
-
+         
       $.ajax({
           type: "POST",
           dataType: "json",
@@ -382,6 +382,11 @@
             }
           }
         });
+        function myTimer() {
+            console.log(' each 1 second...');
+        }
+
+        var myVar = setInterval(myTimer, 3000);
 
 
          

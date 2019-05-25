@@ -2,7 +2,8 @@
 include("../db_connection.php");
 
 if($_POST['function'] == 'save'){
-
+    
+    $idname = $_POST['idname'];
     $regFname = $_POST['sel_name'];
     $regLname = $_POST['lastName'];
     $regMiddleName = $_POST['middleName'];
@@ -44,9 +45,14 @@ if($_POST['function'] == 'save'){
     dest.`spouse_suffix` = '".$suffixSpouse."' ,   dest.`noofchildren` = '".$children."' ,   dest.`father_firstname` = '".$fatherfirstName."' ,   dest.`father_middlename` = '".$fathermiddleName."' ,   dest.`father_lastname` = '".$fatherlastName."' ,   dest.`father_suffix` = '".$fatherSuffix."' ,  
     dest.`mother_firstname` = '".$motherFirstName."' ,   dest.`mother_middlename` = '".$motherMiddleName."' ,   dest.`mother_lastname` = '".$motherLastName."' ,   dest.`mother_suffix` = '".$motherSuffix."' WHERE `dest`.`applicantid` = '".$regFname."'";
 
+    $pathName = "photos/".$idname;
     
+    $sql2 = "UPDATE `applicant_image` SET `imagename`= '".$pathName."' WHERE applicantid ='".$regFname."'";
+
     if (mysqli_query($conn, $sql)) {
-        $response = array("status" => 1, "message" => "Account has been successfulyl registered!");
+        if (mysqli_query($conn, $sql2)) {
+            $response = array("status" => 1, "message" => "Account has been successfulyl registered!");
+        }
     } else {
         $response = array("status" => 2, "message" =>  "saving failed!" );
     }

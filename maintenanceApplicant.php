@@ -21,17 +21,19 @@
         
 
  <!-- Personal Background -->
-           <div class="row">
+            <div class="row">
               <div class="col-md-4">
                 <div class="box">
-                    <div class="js--image-preview"></div>
-                    <div class="upload-options">
-                      <label>
-                      <input name="image" accept="image/jpeg" type="file" class="image-upload">
-                      <!-- <input type="file" class="image-upload" accept="image/*" name = "files" id="files" /> -->
-                      </label>
-                    </div>
+                <img id="image" class ="box" style = "height: -webkit-fill-available; width: -webkit-fill-available;" />
                 </div>
+              
+                <div class="col-md-12"> 
+                
+                        <input class="form-control form-control-user" type="file" name="files" id="files" multiple >
+                        <br>
+                        <!-- <input class="btn btn-primary btn-user btn-block" type="submit" name="submit" id="submit" /> -->
+                
+                  </div>
               </div>
               <div class="col-md-8">
                 <div class="row">
@@ -480,19 +482,50 @@
 
     
    $(function() {
+
+    document.getElementById("files").onchange = function () {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                // get loaded data and render thumbnail.
+                document.getElementById("image").src = e.target.result;
+            };
+
+            // read the image file as a data URL.
+            reader.readAsDataURL(this.files[0]);
+        };
+
     var count = 1;
 
 
     $('#registerApplicants').on('click', function(e) {
         var str = $( "#registerApplicant" ).serialize();
             console.log(str)
-    
+            var file = $('#files')[0].files[0]
+      console.log(file.name);
+      var datas = str+"&idname="+file.name;
       e.preventDefault();
+
+
+      var formData = new FormData($("#registerApplicant")[0]);  
+      console.log("formData",formData);                           
+        $.ajax({
+            url: 'ajax/ajax_imageUpdate.php', // point to server-side PHP script 
+            dataType: 'text',  // what to expect back from the PHP script, if anything
+            cache: false,
+            contentType: false,
+            processData: false,
+            data: formData,                         
+            type: 'post',
+            success: function(php_script_response){
+                // alert("picture moved"); // display response from the PHP script, if any
+            }
+        });
 
       $.ajax({
           type: "POST",
           dataType: "json",
-          data: "function=save&" + str,
+          data: "function=save&" + datas,
           url:"ajax/ajax_updateDetails.php",
           success:function(data) {
             add_Dependents();
@@ -514,10 +547,10 @@
           url:"ajax/ajax_updateEducational.php",
           success:function(data) {
             if(data.status ==1){
-              alert(data.message);
+            //   alert(data.message);
             }else{
               //error message here
-              alert(data.message);
+            //   alert(data.message);
             }
               
           }
@@ -530,10 +563,10 @@
           url:"ajax/ajax_updateRPS.php",
           success:function(data) {
             if(data.status ==1){
-              alert(data.message);
+            //   alert(data.message);
             }else{
               //error message here
-              alert(data.message);
+            //   alert(data.message);
             }
               
           }
@@ -605,6 +638,21 @@
     $("#sel_name").change(function(){
         var deptid = $(this).val();
         console.log(deptid);
+        
+        $.ajax({
+            url: 'ajax/ajax_imagePreview.php',
+            type: 'post',
+            data: {depart:deptid},
+            dataType: 'json',
+            success:function(response){
+                $.each(response, function(i,item){
+                    console.log("test",item.imagename);
+                $('#image').attr('src', item.imagename);
+                });
+               
+
+            }
+        });
 
         $.ajax({
             url: 'ajax/ajax_autoPopulateNamesEmbark.php',
@@ -747,10 +795,10 @@
    data:{item_name:item_name, item_rel:item_rel, item_add:item_add, depart:deptid },
    success:function(data){
     if(data.status ==1){
-              alert(data.message);
+            //   alert(data.message);
             }else{
               //error message here
-              alert(data.message);
+            //   alert(data.message);
             }
     $("td[contentEditable='true']").text("");
     for(var i=2; i<= count; i++)
@@ -782,10 +830,10 @@
    data:{item_namedep:item_namedep, item_reldep:item_reldep, item_dobdep:item_dobdep, depart:deptid},
    success:function(data){
     if(data.status ==1){
-              alert(data.message);
+            //   alert(data.message);
             }else{
               //error message here
-              alert(data.message);
+            //   alert(data.message);
             }
     $("td[contentEditable='true']").text("");
     for(var i=2; i<= count; i++)

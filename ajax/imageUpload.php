@@ -1,30 +1,33 @@
 <?php
-// include("../db_connection.php");
-// Check if image file is a actual image or fake image
-$valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf' , 'doc' , 'ppt'); // valid extensions
-if(isset($_FILES['image']))
-{
-    $name = $_FILES['image']['name'];
-		
-    //Getting temporary file name stored in php tmp folder 
-    $tmp_name = $_FILES['image']['tmp_name'];
-    
-    //Path to store files on server
-    $path = 'http://localhost/swmc/uploads';
-    
-    //checking file available or not 
-    if(!empty($name)){
-        //Moving file to temporary location to upload path 
-        move_uploaded_file($tmp_name,$path.$name);
-        
-        //Displaying success message 
-        print("rrrrrr");
-        echo "Upload successfully";
-    }else{
-        //If file not selected displaying a message to choose a file 
-        echo "Please choose a file";
-        print("sssss");
-    }
-}
 
-?>
+include("../db_connection.php");  
+  
+
+$uploads_dir =  realpath(dirname(getcwd()));
+
+
+// $dirpath = realpath(dirname(getcwd()))
+$name = $_FILES['files']['name'];
+
+if (is_uploaded_file($_FILES['files']['tmp_name']))
+{       
+    $tmppath = "/photos/".$name;
+    $pathanme = "photos/".$name;
+    // echo $uploads_dir.$tmppath;
+    //in case you want to move  the file in uploads directory
+     move_uploaded_file($_FILES['files']['tmp_name'], $uploads_dir.$tmppath);
+
+     $wholeName = $uploads_dir.$tmppath;
+
+     $sql = "INSERT INTO `applicant_image`(`imagename`, `applicantid`) VALUES ('".$pathanme."',(SELECT MAX(applicantId) FROM applicant_tbl))";
+
+     if (mysqli_query($conn, $sql)) {
+        $response = array("status" => 1, "message" => "Account has been successfulyl registered!");
+    } else {
+        $response = array("status" => 2, "message" =>  "saving failed!" );
+    }
+    //  echo 'moved file to destination directory';
+    
+    }
+    echo json_encode($sql);
+?> 
