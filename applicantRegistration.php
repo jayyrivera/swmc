@@ -580,6 +580,12 @@
                   Register Applicant
                 </button>
                   </div>
+                  <br>
+                  </div>
+                      <div class="alert alert-danger" role="alert" id="loginAlert">
+                         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                       <span id="textLoginAlert"> </span>
+                      </div>
               </div>
 
           </div>
@@ -652,10 +658,24 @@
                 });
 
 
-
+                $("#loginAlert").hide(); 
                
      $('#registerApplicants').on('click', function(e) {
-       
+      
+
+        if($("#firstName").val() == "" || $("#lastName").val() == "" || $("#middleName").val() == "" ||
+        $("#cStatus").val() == "" || $("#genderID").val() == "" || $("#ageID").val() == "" || $("#address").val() == "" ||
+        $("#religion").val() == "" ||$("#citizenship").val() == "" ||$("#dob").val() == "" ||$("#placeofbirth").val() == "" ||
+        $("#height").val() == "" ||$("#weight").val() == "" ||$("#cellphone").val() == "" ||
+        $("#telephone").val() == "" ||$("#applicant_status").val() == "" ||$("#firstNameSpouse").val() == "" ||
+        $("#lastNameSpouse").val() == "" ||   $("#middleNameSpouse").val() == "" ||   $("#children").val() == "" ||  $("#fatherfirstName").val() == "" ||  $("#fatherlastName").val() == "" ||
+        $("#fathermiddleName").val() == "" ||  $("#motherFirstName").val() == "" ||  $("#motherLastName").val() == "" ||  $("#motherMiddleName").val() == "" ||  $("#school").val() == "" ||
+        $("#fromEducation").val() == "" ||  $("#yearEducation").val() == "" ||  $("#sssno").val() == "" ||  $("#srcNo").val() == "" ||
+        $("#ofwNo").val() == "" ||  $("#phNo").val() == "" ||  $("#pgbno").val() == "" ||  $("#passno").val() == "" ||  $("#agency").val() == "" || $("#principal").val() == "" || $("#vessel").val() == ""  ){
+          $("#loginAlert").show(); //to show alert pane
+          $("#textLoginAlert").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
     
       var str = $( "#registerApplicant" ).serialize();
      
