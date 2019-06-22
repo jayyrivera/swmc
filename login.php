@@ -33,7 +33,11 @@
           <div class="card-body p-0">
             <!-- Nested Row within Card Body -->
             <div class="row">
-              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+            <div class="col-lg-6 d-none d-lg-block bg-login-image" style="
+              background: url(https://wallimpex.com/data/out/768/nautical-computer-wallpaper-11166591.jpg);
+              background-position: center;
+              background size:;
+              "></div>
               <div class="col-lg-6">
                 <div class="p-5">
                   <div class="text-center">
@@ -41,7 +45,7 @@
                   </div>
                   <form class="user" id="loginAccount">
                     <div class="form-group">
-                      <input type="email" class="form-control form-control-user" id="loginEmail" name = "loginEmail" aria-describedby="emailHelp" placeholder="Enter User ID">
+                      <input type="email" class="form-control form-control-user" id="loginEmail" name = "loginEmail" aria-describedby="emailHelp" placeholder="Enter Username">
                     </div>
                     <div class="form-group">
                       <input type="password" class="form-control form-control-user" id="loginPassowrd"  name="loginPassword" placeholder="Password">
@@ -49,14 +53,14 @@
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
                         <input type="checkbox" class="custom-control-input" id="customCheck">
-                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                        <!-- <label class="custom-control-label" for="customCheck">Remember Me</label> -->
                       </div>
                       <div class="alert alert-danger" role="alert" id="loginAlert">
                          <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
                        <span id="textLoginAlert"> </span>
                       </div>
                     </div>
-                    <a class="btn btn-primary btn-user btn-block" id="loginAccounts">
+                    <a class="btn btn-primary btn-user btn-block" id="loginAccounts" style = "color: white">
                       Login
                     </a>
                   </form>
