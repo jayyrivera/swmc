@@ -696,7 +696,7 @@
             data: formData,                         
             type: 'post',
             success: function(php_script_response){
-                alert(php_script_response); // display response from the PHP script, if any
+                // alert(php_script_response); // display response from the PHP script, if any
             }
         });
        
@@ -708,11 +708,19 @@
           success:function(data) {
 
             if(data.status ==1){
-                            $.ajax({
+                $.ajax({
                                 type: "POST",
                                 dataType: "json",
                                 data: "function=save&" + str,
                                 url:"ajax/ajax_applicantEducationBackground.php",
+                                // url:"ajax/ajax_applicantAlottee.php"
+                                success:function(data) {
+                                    $.ajax({
+                                type: "POST",
+                                dataType: "json",
+                                data: "function=save&" + str,
+                                url:"ajax/ajax_applicantAlottee.php",
+                                // url:"ajax/ajax_applicantAlottee.php"
                                 success:function(data) {
                                     add_Beneficiaries();
                                     add_Dependents();
@@ -721,7 +729,12 @@
                                   
                                 }
                              });
-              alert(data.message);
+                                  
+                                  
+                                }
+                             });
+                           
+            //   alert(data.message);
             }else{
               //error message here
               alert(data.message);
