@@ -170,19 +170,7 @@
                   
                   
                   
-                  $('#vesselsData thead tr:eq(1) th').each( function () {
-                    var title = $('#vesselsData thead tr:eq(1) th').eq( $(this).index() ).text();
-                    $(this).html( '<input type="text" placeholder="'+title+'" />' );
-                } ); 
-
-
-                    table.columns().every(function (index) {
-                        $('#vesselsData thead tr:eq(1) th:eq(' + index + ') input').on('keyup change', function () {
-                            table.column($(this).parent().index() + ':visible')
-                                .search(this.value)
-                                .draw();
-                        });
-                    });  // just to see I'm getting the correct data.  // just to see I'm getting the correct data.
+                  // just to see I'm getting the correct data.  // just to see I'm getting the correct data.
               }
           });
 

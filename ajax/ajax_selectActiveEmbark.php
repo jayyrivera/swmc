@@ -19,4 +19,3 @@ while($row = $res->fetch_array(MYSQLI_ASSOC)){
 ?>
 
 
-<!-- select applicant_documents.documentName, applicant_tbl.firstname, applicant_tbl.lastname from applicant_documents INNER JOIN applicant_tbl ON applicant_documents.applicantId = applicant_tbl.applicantid WHERE exp_date >= DATE(NOW()) -->
