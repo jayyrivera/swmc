@@ -67,6 +67,7 @@
                     "ajax": "ajax/ajax_applicantPopulate.php", 
                     "header": true,
                     "columns" : [
+                      {"data": "applicant_status", "title": "Status"},
                       {"data": "firstname", "title": "First Name"},
                       {"data": "lastname", "title": "Last Name"},
                       {"data": "middlename", "title": "Middle Name"},
@@ -76,7 +77,7 @@
                       {"data": "mobileno", "title": "Mobile No."},
                       {"data": "address","title": "Address"},
                       ]
-                      
+                      //not all should be displayed on reports most data are confidential and not all people should know it. this is called filtering.
                   }) 
 
                   $('#applicantStatus thead tr:eq(1) th').each( function () {

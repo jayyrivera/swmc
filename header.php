@@ -116,7 +116,7 @@
             <h6 class="collapse-header">Reports:</h6>
             <a class="collapse-item" href="vesselReport.php" id = "embarkLists" name ="embarkLists">Emabarkation List</a>
             <a class="collapse-item" href="applicantReport.php" id = "appList" name ="appList">Applicant List</a>
-            <a class="collapse-item" href="applicantStatus.php" id = "appStat" name ="appStat">Applicant Status</a>
+            <!-- <a class="collapse-item" href="applicantStatus.php" id = "appStat" name ="appStat">Applicant Status</a> -->
             <a class="collapse-item" href="applicantLoansList.php" id = "appLoan" name ="appLoan">Applicant Loans</a>
           </div>
         </div>

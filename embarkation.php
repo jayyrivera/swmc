@@ -229,7 +229,7 @@
                         </div>
                     </div>
 
-                    <div class="card shadow mb-4">
+                    <!-- <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <h6 class="m-0 font-weight-bold text-primary">Evaluation</h6>
                         </div>
@@ -262,7 +262,7 @@
 
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
@@ -303,8 +303,7 @@
      $('#addEmabarked').on('click', function(e) {
 
         if($("#vesselStatus").val() == "" || $("#sel_rank").val() == "" || $("#sel_name").val() == "" || $("#sel_lname").val() == "" ||  $("#sel_mname").val() == "" ||  $("#sel_vessel").val() == "" ||  $("#sel_type").val() == ""
-        ||  $("#sel_gross").val() == "" ||  $("#dateEnrolled").val() == "" ||  $("#port").val() == "" ||  $("#disembarked").val() == "" ||  $("#duration").val() == "" ||  $("#embarkedDate").val() == "" ||  $("#disembarkedDate").val() == ""
-        ||  $("#next").val() == "" ||  $("#license").val() == "" ||  $("#remards").val() == "" ){
+        ||  $("#sel_gross").val() == "" ||  $("#dateEnrolled").val() == "" ||  $("#port").val() == "" ||  $("#disembarked").val() == "" ||  $("#duration").val() == "" ||  $("#embarkedDate").val() == "" ||  $("#disembarkedDate").val() == "" ||  $("#remards").val() == "" ){
           $("#registeralert").show(); //to show alert pane
           $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
           return false; // to break
