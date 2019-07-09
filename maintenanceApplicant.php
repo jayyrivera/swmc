@@ -347,7 +347,7 @@
            
           </div>
       </div>
-      <div class="card mb-4">
+      <!-- <div class="card mb-4">
           <div class="card-header py-3">
             <h6 class="m-0 font-weight-bold text-primary">Allottee</h6>
           </div>
@@ -435,7 +435,35 @@
                   </div>
               </div>
               </div>
-              </div>
+              </div> -->
+
+              <div class="card mb-4">
+          <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Alottee</h6>
+          </div>
+          <div class="card-body">
+
+          <div class="table-responsive">
+                    <table class="table table-bordered" id="alot_table">
+                    <tr>
+                    <th width="25%">Name</th>
+                    <th width="35%">Relationship</th>
+                    <th width="35%">Address</th>
+                    <th width="5%"></th>
+                    </tr>
+                    <tr>
+                    <td contenteditable="true" class="alot_name"></td>
+                    <td contenteditable="true" class="alot_rel" ></td>
+                    <td contenteditable="true" class="alot_add" ></td>
+                    <td></td>
+                    </tr>
+                    </table>
+                    <div align="right">
+                        <button type="button" name="addDoc" id="addLot" class="btn btn-success btn-xs">+</button>
+                    </div>
+            </div>
+            </div>
+      </div>
 
               <div class="card mb-4">
           <div class="card-header py-3">
@@ -593,6 +621,22 @@
           });
           $('#registerApplicant')[0].reset();
     });
+
+    $('#addLot').click(function(){
+            count = count + 1;
+                var html_code = "<tr id='row"+count+"'>";
+                html_code += "<td contenteditable='true' class='alot_add'></td>";
+                html_code += "<td contenteditable='true' class='alot_rel'></td>";
+                html_code += "<td contenteditable='true' class='alot_add' ></td>";
+                html_code += "<td><button type='button' name='removeAlot' data-row='row"+count+"' class='btn btn-danger btn-xs removeBen'>X</button></td>";   
+                html_code += "</tr>";  
+                $('#alot_table').append(html_code);
+                });
+
+                 $(document).on('click', '.removeAlot', function(){
+                var delete_row = $(this).data("row");
+                $('#' + delete_row).remove();
+                });
 
     $('#addBen').click(function(){
             count = count + 1;
@@ -829,6 +873,37 @@
   });
 
   }
+
+  function add_Alottee(){
+    var deptid = $('#sel_name').val();
+  var alot_name = [];
+  var alot_rel = [];
+  var alot_add = [];
+  $('.alot_name').each(function(){
+    alot_name.push($(this).text());
+  });
+  $('.alot_rel').each(function(){
+    alot_rel.push($(this).text());
+  });
+  $('.alot_add').each(function(){
+    alot_add.push($(this).text());
+  });
+  $.ajax({
+   url:"ajax/ajax_updateAlotte.php",
+   method:"POST",
+   data:{alot_name:alot_name, alot_rel:alot_rel, alot_add:alot_add, depart:deptid},
+   success:function(data){
+    // alert(data);
+    $("td[contentEditable='true']").text("");
+    for(var i=2; i<= count; i++)
+    {
+     $('tr#'+i+'').remove();
+    }
+   }
+  });
+
+  }
+
 
   function add_Dependents(){
     var deptid = $('#sel_name').val();
