@@ -3,7 +3,7 @@ include("../db_connection.php");
 
 $departid = $_POST['depart'];   // department id
 
-$sql = "SELECT `grosstonage`,`type` FROM vessel WHERE vesselname=".$departid;
+$sql = "SELECT `grosstonage`,`type` FROM vessel WHERE vesselname= '$departid'";
 
 $res = mysqli_query($conn, $sql) or die("Error: ".mysqli_error($conn));
 

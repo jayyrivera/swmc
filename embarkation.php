@@ -311,7 +311,8 @@
  
       var str = $( "#embarkForm" ).serialize();
       console.log(str)
-    
+      $("#sel_type").text();
+      $("#sel_gross").text();
       e.preventDefault();
       $.ajax({
           type: "POST",
@@ -364,8 +365,8 @@
                       {"data": "firstname", "title": "First Name"},
                       {"data": "lastname", "title": "Last Name"},
                       {"data": "vessel", "title": "Vessel"},
-                      {"data": "type", "title": "Type"},
-                      {"data": "grossTonage", "title": "Gross Tonage"},
+                    //   {"data": "type", "title": "Type"},
+                    //   {"data": "grossTonage", "title": "Gross Tonage"},
                       {"data": "dateEnrolled", "title": "Date Enrolled"},
                       {"data": "port_fdids_1", "title": "Port"},
                       {"data": "duration","title": "Duration"},
