@@ -3,7 +3,7 @@ include("../db_connection.php");
 
 
     
-    $sql = "SELECT `status`, applicant_tbl.firstname, applicant_tbl.lastname, `rank`, `vessel`, `type`, `grossTonage`, `dateEnrolled`, `port_fdids_1`, `duration`, `disembarked_fdids_1`, `embarkedDate_sbds`,`disembarkedDate_sbds`, `performanceEvaluation`, `willingnessToJoin`, `availability`, `nextVessel`, `license`, `commentFromPrin`, `remarks`from embarktion_tbl INNER JOIN applicant_tbl ON applicant_tbl.applicantId = embarktion_tbl.applicantId
+    $sql = "SELECT `status`, `rank`,`firstname`, `lastname`, `vessel`, `type`, `grossTonage`, `dateEnrolled`, `port_fdids_1`, `duration`, `embarkedDate_sbds`, `disembarkedDate_sbds`,`remarks` from embarktion_tbl
     ";
     $res = mysqli_query($conn, $sql) or die("Error: ".mysqli_error($conn));
 

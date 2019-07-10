@@ -297,7 +297,7 @@
     <script type="text/javascript">
 
     $(function() {
-
+        $.fn.dataTable.ext.errMode = 'none';
      
         $("#registeralert").hide();
      $('#addEmabarked').on('click', function(e) {
@@ -344,9 +344,6 @@
               }
      });
 
-   
-     $.fn.dataTable.ext.errMode = 'none';
-
       $.ajax({
         type: "GET",
           dataType: "json",
@@ -358,8 +355,6 @@
                   console.log("RESULT",result);
                   $('#embarkTable').DataTable({
                     "searching": true,
-                    "processing": true,
-                    "serverSide": true,
                     "responsive": true,
                     "ajax": "ajax/ajax_embarkationPopulate.php", 
                     "header": true,
@@ -374,15 +369,15 @@
                       {"data": "dateEnrolled", "title": "Date Enrolled"},
                       {"data": "port_fdids_1", "title": "Port"},
                       {"data": "duration","title": "Duration"},
-                      {"data": "disembarked_fdids_1","title": "Dismebarked (Flight)"},
+                    //   {"data": "disembarked_fdids_1","title": "Dismebarked (Flight)"},
                       {"data": "embarkedDate_sbds","title": "Embarked (Seamans Book)"},
                       {"data": "disembarkedDate_sbds","title": "Disembarked (Seamans Book)"},
-                      {"data": "performanceEvaluation","title": "Performance"},
-                      {"data": "willingnessToJoin","title": "Williness to Join"},
-                      {"data": "availability","title": "Availability"},
-                      {"data": "nextVessel","title": "Next Vessel"},
-                      {"data": "license","title": "License"},  
-                      {"data": "commentFromPrin","title": "Comments"},  
+                    //   {"data": "performanceEvaluation","title": "Performance"},
+                    //   {"data": "willingnessToJoin","title": "Williness to Join"},
+                    //   {"data": "availability","title": "Availability"},
+                    //   {"data": "nextVessel","title": "Next Vessel"},
+                    //   {"data": "license","title": "License"},  
+                    //   {"data": "commentFromPrin","title": "Comments"},  
                       {"data": "remarks","title": "Remarks"}
                       ]
                       
