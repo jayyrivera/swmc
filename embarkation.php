@@ -345,7 +345,7 @@
      });
 
    
- 
+     $.fn.dataTable.ext.errMode = 'none';
 
       $.ajax({
         type: "GET",
@@ -353,10 +353,14 @@
           url:"ajax/ajax_vesselPopulate.php",
           success :  function(result)
               {
+                  
                   //pass data to datatable
-                  console.log(result);
+                  console.log("RESULT",result);
                   $('#embarkTable').DataTable({
                     "searching": true,
+                    "processing": true,
+                    "serverSide": true,
+                    "responsive": true,
                     "ajax": "ajax/ajax_embarkationPopulate.php", 
                     "header": true,
                     "columns" : [
