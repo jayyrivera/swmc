@@ -40,7 +40,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Add Vessel</h4>
+                <h4 class="modal-title">Requests</h4>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
 

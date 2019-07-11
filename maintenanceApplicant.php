@@ -298,7 +298,7 @@
 
           <h1 class="h6 text-gray-900 mb-4">Beneficiaries:</h1>
 
-          <div class="table-responsive">
+          <!-- <div class="table-responsive">
                     <table class="table table-bordered" id="ben_table">
                     <tr>
                     <th width="30%">Name</th>
@@ -316,15 +316,18 @@
                     <div align="right">
                         <button type="button" name="addBen" id="addBen" class="btn btn-success btn-xs">+</button>
                     </div>
-            </div>
-
+            </div> -->
+            <div class="table-responsive">
+                <table class="table table-bordered" id="applicantBen" name = "applicantBen" width="100%" cellspacing="0" >
+                </table>
+              </div>
         
 
               <br>
 
               <h1 class="h6 text-gray-900 mb-4">Dependents:</h1>
 
-              <div class="table-responsive">
+              <!-- <div class="table-responsive">
                     <table class="table table-bordered" id="dep_table">
                     <tr>
                     <th width="30%">Name</th>
@@ -345,7 +348,12 @@
             </div>
 
            
-          </div>
+          </div> -->
+          <div class="table-responsive">
+                <table class="table table-bordered" id="applicantDept" name = "applicantDept" width="100%" cellspacing="0" >
+                </table>
+              </div>
+              </div>
       </div>
       <!-- <div class="card mb-4">
           <div class="card-header py-3">
@@ -444,7 +452,7 @@
           <div class="card-body">
 
           <div class="table-responsive">
-                    <table class="table table-bordered" id="alot_table">
+                    <!-- <table class="table table-bordered" id="alot_table">
                     <tr>
                     <th width="25%">Name</th>
                     <th width="35%">Relationship</th>
@@ -462,7 +470,13 @@
                         <button type="button" name="addDoc" id="addLot" class="btn btn-success btn-xs">+</button>
                     </div>
             </div>
-            </div>
+            </div> -->
+            <div class="table-responsive">
+                <table class="table table-bordered" id="applicantAlottee" name = "applicantAlottee" width="100%" cellspacing="0" >
+                </table>
+              </div>
+              </div>
+              </div>
       </div>
 
               <div class="card mb-4">
@@ -508,6 +522,204 @@
               </div>
 
           </div>
+
+
+          <div class="modal fade" id="deptModal">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Data Dependencies</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <form class="dependencies" id="depForm">
+            <div class="modal-body">
+            <div class="row">
+            <div>
+
+            <div class="col-md-4">
+                                <label>ID:</label>
+                                <input type="text" class="form-control form-control-user" id="dependentid" name="dependentid"  readonly="true" >
+                                <!-- <select class="form-control" id="request_vessel" name = "request_vessel" disabled> -->
+                              
+                                </div>
+                                
+                                <br>
+                        
+                            </div>
+                                <div class="col-md-12">
+                                <label>Name:</label>
+                                <input type="text" class="form-control form-control-user" id="dependentName" name="dependentName" >
+                                <!-- <select class="form-control" id="request_vessel" name = "request_vessel" disabled> -->
+                                </select>
+                                </div>
+                        
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <label>Relationship:</label>
+                                <input type="text" class="form-control form-control-user" id="dependentRelation" name="dependentRelation">
+                                <!-- <input type="date" name="dateEnrolledRequest" id = "dateEnrolledRequest" min="1000-01-01" max="3000-12-31" class="form-control"> -->
+                                </div>
+                        
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <label>Date of birth</label>
+                                <input type="text" class="form-control form-control-user" id="dependentDob" name="dependentDob">
+                                <!-- <input type="date" name="due_date" id = "due_date" min="1000-01-01" max="3000-12-31" class="form-control"> -->
+                                </div>
+                        
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                <button type="button" id="updateDepts" class="btn btn-primary" data-dismiss="modal">Update</button>
+            </div>
+            </div>
+          </div>
+            </form>
+            <!-- Modal footer -->
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="alotteeModal">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Data Alottee</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <form class="vessels" id="AlotteForm">
+            <div class="modal-body">
+            <div class="row">
+
+            <div class="col-md-4">
+                    <label>ID:</label>
+                    <input type="text" class="form-control form-control-user" id="alotteid" name="alotteid"  readonly="true" >
+                    <!-- <select class="form-control" id="request_vessel" name = "request_vessel" disabled> -->
+                  
+                    </div>
+                                <div class="col-md-12">
+                                <label>Name:</label>
+                                <input type="text" class="form-control form-control-user" id="alottename" name="alottename" >
+                                <!-- <select class="form-control" id="request_vessel" name = "request_vessel" disabled> -->
+                                </select>
+                                </div>
+                        
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <label>Relationship:</label>
+                                <input type="text" class="form-control form-control-user" id="alotterelation" name="alotterelation">
+                                <!-- <input type="date" name="dateEnrolledRequest" id = "dateEnrolledRequest" min="1000-01-01" max="3000-12-31" class="form-control"> -->
+                                </div>
+                        
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <label>Address</label>
+                                <input type="text" class="form-control form-control-user" id="alotteaddres" name="alotteaddres">
+                                <!-- <input type="date" name="due_date" id = "due_date" min="1000-01-01" max="3000-12-31" class="form-control"> -->
+                                </div>
+                        
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                <button type="button" id="updateAlotte" class="btn btn-primary" data-dismiss="modal">UPDATE</button>
+            </div>
+            </div>
+          </div>
+            </form>
+            <!-- Modal footer -->
+
+        </div>
+    </div>
+
+    <div class="modal fade" id="benMOdal">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Data Beneficiaries</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <form class="vessesl" id="BenForm">
+            <div class="modal-body">
+            <div class="row">
+            
+
+<div class="col-md-4">
+                    <label>ID:</label>
+                    <input type="text" class="form-control form-control-user" id="legalId" name="legalId"  readonly="true" >
+                    <!-- <select class="form-control" id="request_vessel" name = "request_vessel" disabled> -->
+                  
+                    </div>
+                    
+                    <br>
+                                <div class="col-md-12">
+                                <label>Name:</label>
+                                <input type="text" class="form-control form-control-user" id="beneficiariesName" name="beneficiariesName" placeholder="Destination">
+                                <!-- <select class="form-control" id="request_vessel" name = "request_vessel" disabled> -->
+                                </select>
+                                </div>
+                        
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <label>Relationship:</label>
+                                <input type="text" class="form-control form-control-user" id="beneficiariesRelation" name="beneficiariesRelation">
+                                <!-- <input type="date" name="dateEnrolledRequest" id = "dateEnrolledRequest" min="1000-01-01" max="3000-12-31" class="form-control"> -->
+                                </div>
+                        
+                            </div>
+
+                            <br>
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                <label>Address</label>
+                                <input type="text" class="form-control form-control-user" id="benficiariesAddress" name="benficiariesAddress">
+                                <!-- <input type="date" name="due_date" id = "due_date" min="1000-01-01" max="3000-12-31" class="form-control"> -->
+                                </div>
+                        
+                            </div>
+                            <br>
+                            <div class="modal-footer">
+                <button type="button" id="updateBens" class="btn btn-primary" data-dismiss="modal">UPDATE</button>
+            </div>
+            </div>
+          </div>
+            </form>
+            <!-- Modal footer -->
+
+        </div>
+    </div>
     </div>
     </form>
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -515,6 +727,9 @@
 
     
    $(function() {
+
+    $.fn.dataTable.ext.errMode = 'none';
+   
 
     document.getElementById("files").onchange = function () {
             var reader = new FileReader();
@@ -570,6 +785,7 @@
             }
         });
 
+
       $.ajax({
           type: "POST",
           dataType: "json",
@@ -621,6 +837,9 @@
           });
           $('#registerApplicant')[0].reset();
     });
+
+
+   
 
     $('#addLot').click(function(){
             count = count + 1;
@@ -697,11 +916,98 @@
    
   }
 
+ 
 
   function populateBaseID(){
+      
     $("#sel_name").change(function(){
         var deptid = $(this).val();
         console.log(deptid);
+
+        $('#applicantDept').DataTable( {
+        ajax: {
+            type: "post",
+          dataType: "json",
+          url:"ajax/ajax_getDeptData.php",
+          data: {depart:deptid},
+        },
+        columns: [
+            {"data": "dependentid", "title": "ID"},
+            {"data": "dependentName", "title": "Name"},
+            {"data": "dependentRelation", "title": "Relationship"},
+            {"data": "dependentDob", "title": "Date of Birth"},
+            // {"render": function(data, type, row) {return '<button class="btn btn-primary" data-toggle="modal" data-target="#myModal" data-dependentName="'+row.dependentName+'" data-dependentRelation="'+row.dependentRelation+'" data-dependentDob="'+row.dependentDob+'">EDIT</button>'} }
+        ]
+        
+    } );
+    var oTable = $('#applicantDept'). dataTable();
+                    $('#applicantDept').on('click', 'tr', function(){
+                     oData = oTable.fnGetData(this);
+                    console.log(oData);
+                    $('#deptModal').modal("show");
+                    $("#dependentid").val(oData.dependentid);
+                    $("#dependentName").val(oData.dependentName);
+                    $("#dependentRelation").val(oData.dependentRelation);
+                    $("#dependentDob").val(oData.dependentDob);
+                    });
+
+    $('#applicantBen').DataTable( {
+        ajax: {
+            type: "post",
+          dataType: "json",
+          url:"ajax/ajax_getBenData.php",
+          data: {depart:deptid},
+        },
+        columns: [
+            {"data": "legalId", "title": "ID"},
+            {"data": "beneficiariesName", "title": "Name"},
+            {"data": "beneficiariesRelation", "title": "Relationship"},
+            {"data": "benficiariesAddress", "title": "Address"},
+            // {"render": function(data, type, row) {return '<button class="btn btn-primary" data-toggle="modal" data-beneficiariesName="'+row.beneficiariesName+'" data-beneficiariesRelation="'+row.beneficiariesRelation+'" data-benficiariesAddress="'+row.benficiariesAddress+'" data-target="#myModal">CLICK</button>'} }
+        ]
+        
+    } );
+
+    var oTables = $('#applicantBen'). dataTable();
+                    $('#applicantBen').on('click', 'tr', function(){
+                     oData = oTables.fnGetData(this);
+                    console.log(oData);
+                    $('#benMOdal').modal("show");
+                    $("#legalId").val(oData.legalId);
+                    $("#beneficiariesName").val(oData.beneficiariesName);
+                    $("#beneficiariesRelation").val(oData.beneficiariesRelation);
+                    $("#benficiariesAddress").val(oData.benficiariesAddress);
+                    });
+    
+
+
+    $('#applicantAlottee').DataTable( {
+        ajax: {
+            type: "post",
+          dataType: "json",
+          url:"ajax/ajax_getAlotteData.php",
+          data: {depart:deptid},
+        },
+        columns: [
+            {"data": "alotteid", "title": "ID"},
+            {"data": "alottename", "title": "Name"},
+            {"data": "alotterelation", "title": "Relationship"},
+            {"data": "alotteaddres", "title": "Address"},
+            // {"render": function(data, type, row) {return '<button class="btn btn-primary" data-toggle="modal" data-alottename="'+row.alottename+'" data-alotterelation="'+row.alotterelation+'" data-alotteaddres="'+row.alotteaddres+'" data-target="#myModal">CLICK</button>'} }
+        ]
+    } );
+
+    var oTabless = $('#applicantAlottee'). dataTable();
+                    $('#applicantAlottee').on('click', 'tr', function(){
+                     oData = oTabless.fnGetData(this);
+                    console.log(oData);
+                    $('#alotteeModal').modal("show");
+                    $("#alotteid").val(oData.alotteid);
+                    $("#alottename").val(oData.alottename);
+                    $("#alotterelation").val(oData.alotterelation);
+                    $("#alotteaddres").val(oData.alotteaddres);
+                    });
+
         
         $.ajax({
             url: 'ajax/ajax_imagePreview.php',
@@ -839,6 +1145,97 @@
     });
   }
 
+  $('#updateDepts').on('click', function(e) {
+        e.preventDefault();
+
+        if($("#dependentName").val() == "" || $("#dependentRelation").val() == "" || $("#dependentDob").val() == ""){
+        //   $("#registeralert").show(); //to show alert pane
+        //   $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
+       
+    
+      var str = $( "#registerApplicant").serialize();
+      console.log("DEPENDENTS", str)
+
+      $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: "function=save&" + str,
+          url:"ajax/ajax_updateDepData.php",
+          success:function(data) {
+            if(data.status ==1){
+              alert(data.message);
+            }else{
+              //error message here
+              alert(data.message);
+            }
+          }
+        });
+
+    });
+
+    $('#updateBens').on('click', function(e) {
+        e.preventDefault();
+
+        if($("#beneficiariesName").val() == "" || $("#beneficiariesRelation").val() == "" || $("#benficiariesAddress").val() == ""){
+        //   $("#registeralert").show(); //to show alert pane
+        //   $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
+       
+    
+      var str = $( "#BenForm").serialize();
+      console.log("DEPENDENTS", str)
+
+      $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: "function=save&" + str,
+          url:"ajax/ajax_updateBenData.php",
+          success:function(data) {
+            if(data.status ==1){
+              alert(data.message);
+            }else{
+              //error message here
+              alert(data.message);
+            }
+          }
+        });
+
+    });
+
+    $('#updateAlotte').on('click', function(e) {
+        e.preventDefault();
+
+        if($("#alottename").val() == "" || $("#alotterelation").val() == "" || $("#alotteaddres").val() == ""){
+        //   $("#registeralert").show(); //to show alert pane
+        //   $("#textalertregister").text("Please fill out all the fields!"); // set text alert pane
+          return false; // to break
+        }
+       
+    
+      var str = $( "#AlotteForm").serialize();
+      console.log("DEPENDENTS", str)
+
+      $.ajax({
+          type: "POST",
+          dataType: "json",
+          data: "function=save&" + str,
+          url:"ajax/ajax_updateAlotData.php",
+          success:function(data) {
+            if(data.status ==1){
+              alert(data.message);
+            }else{
+              //error message here
+              alert(data.message);
+            }
+          }
+        });
+
+    });
+
+  
   function add_Beneficiaries(){
   var deptid = $('#sel_name').val();
   var item_name = [];
