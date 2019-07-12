@@ -18,8 +18,16 @@
   <!-- Custom styles for this template -->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="css/sb-modified.css" rel="stylesheet">
+  <!-- <link rel="stylesheet" type="text/css" href="vendor/datatables.min.css"/> -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/jquery.dataTables.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/buttons/1.5.6/css/buttons.dataTables.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.16/b-1.5.1/b-html5-1.5.1/datatables.min.css"/>
+ 
+
+
   <!-- Custom styles for this page -->
-  <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  
+ 
 
 </head>
 
@@ -331,6 +339,8 @@
   </nav>
 
   <script src="vendor/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
+  
     <script type="text/javascript">
 
       $('document').ready(function(){

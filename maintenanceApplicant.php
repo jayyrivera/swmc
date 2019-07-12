@@ -792,8 +792,8 @@
           data: "function=save&" + datas,
           url:"ajax/ajax_updateDetails.php",
           success:function(data) {
-            add_Dependents();
-            add_Beneficiaries();
+            // add_Dependents();
+            // add_Beneficiaries();
             if(data.status ==1){
               alert(data.message);
             }else{
@@ -835,7 +835,7 @@
               
           }
           });
-          $('#registerApplicant')[0].reset();
+        //   $('#registerApplicant')[0].reset();
     });
 
 

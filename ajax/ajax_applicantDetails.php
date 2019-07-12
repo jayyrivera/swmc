@@ -13,9 +13,6 @@ while($row = $res->fetch_array(MYSQLI_ASSOC)){
     $output[] = $row;
 
   }
-  
-
-// encoding array to json format
 echo json_encode($output);
 
 ?>

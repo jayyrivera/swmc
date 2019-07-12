@@ -762,10 +762,22 @@
                                 url:"ajax/ajax_applicantEducationBackground.php",
                                 // url:"ajax/ajax_applicantAlottee.php"
                                 success:function(data) {
+
+                                    $.ajax({
+                                type: "POST",
+                                dataType: "json",
+                                data: "function=save&" + str,
+                                url:"ajax/ajax_applicantRPS.php",
+                                // url:"ajax/ajax_applicantAlottee.php"
+                                success:function(data) {
                                     add_Beneficiaries();
                                     add_Dependents();
                                     add_documents();
                                     add_Alottee();
+                                  
+                                  
+                                }
+                             });
                                   
                                   
                                 }
